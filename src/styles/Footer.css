@@ -1,0 +1,132 @@
+/* Footer Styling */
+.footer {
+  background-color: #f0f0f0; /* Light gray background */
+  padding: 40px;
+  font-family: sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px; /* Set a maximum width for content */
+  margin: 0 auto; /* Center the content */
+}
+
+.contact-us,
+.stay-connected {
+  text-align: left;
+  flex: 1;
+}
+
+.stay-connected h3 {
+  margin-bottom: 10px;
+}
+
+.subscribe-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.subscribe-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  flex: 1;
+}
+
+.subscribe-form button {
+  background-color: #f5c6cb; /* Light pink */
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.subscribe-form button:hover {
+  background-color: #e0b3b8;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+}
+
+.social-icons a {
+  color: #333;
+}
+
+.vertical-line {
+  width: 1px;
+  background-color: #ccc;
+  height: 200px; /* Adjust as needed */
+  margin: 0 30px; /* Space on either side */
+}
+
+.copyright {
+  margin-top: 40px;
+  font-size: 0.8em;
+  color: #777;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column; /* Stack elements vertically */
+      text-align: center; /* Center all elements */
+  }
+
+  .contact-us,
+  .stay-connected {
+      width: 100%; /* Occupy full width */
+      text-align: center; /* Center text */
+      margin-bottom: 20px; /* Add spacing between sections */
+  }
+
+  .social-icons {
+      justify-content: center; /* Center the icons */
+  }
+
+  .vertical-line {
+      display: none; /* Hide the vertical line */
+  }
+
+  .subscribe-form {
+      flex-direction: column; /* Stack input and button vertically */
+      align-items: stretch;
+  }
+
+  .subscribe-form input {
+      margin-right: 0; /* Remove right margin */
+      margin-bottom: 10px; /* Add margin between input and button */
+  }
+
+  /* Footer Bottom Section */
+  .copyright {
+      margin-top: 20px; /* Reduce space above copyright */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+      padding: 20px; /* Reduce padding on smaller screens */
+  }
+
+  .footer-container {
+      padding: 0 10px; /* Add some padding to prevent edge-to-edge content */
+  }
+
+  .social-icons {
+      gap: 10px; /* Reduce the gap between icons */
+  }
+
+  .subscribe-form input,
+  .subscribe-form button {
+      padding: 8px; /* Make form elements smaller */
+  }
+}

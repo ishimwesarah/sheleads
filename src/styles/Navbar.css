@@ -1,0 +1,259 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    color: black;
+    margin-top: -8px;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-bottom: 2px solid #D9C3C3;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;  /* Needed for positioning the toggle button */
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #D9C3C3;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1.1em;
+}
+
+.navbar-item:hover {
+    background-color: #D9C3C3;
+    color: white;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 30px;  /* Make it more rounded */
+    transition: width 0.4s ease;
+    border: 1px solid #D9D9D9;
+    overflow: hidden; /*  Prevent content overflow */
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    color: black;
+    font-size: 1em;
+    padding: 5px;
+    outline: none;
+    width: 150px;  /* Smaller initial width */
+    transition: width 0.3s ease;
+}
+
+.search-bar input::placeholder {
+    color: #777; /* Light gray placeholder text */
+}
+
+.search-bar input:focus {
+    width: 200px;  /* Slightly wider on focus */
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding-left: 5px; /*  Adjust spacing */
+}
+
+/* Navbar Toggle (Hamburger) */
+.navbar-toggle {
+    display: none;  /* Hidden by default, shown only on small screens */
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #D9C3C3;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+}
+
+/* Modal Trigger - "Explore" Button */
+.modal-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid #D9D9D9;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.modal-btn:hover {
+    background-color: #D9D9D9;
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;  /* Stack brand, menu, etc. */
+        align-items: flex-start;  /* Align items to the start */
+        padding: 10px;
+    }
+
+    .navbar-brand {
+        margin-bottom: 10px;  /* Space between brand and menu */
+    }
+
+    .navbar-menu {
+        display: none;  /* Hide regular menu */
+        flex-direction: column;
+        width: 100%;  /* Menu takes full width */
+        text-align: center;
+        border-top: 1px solid #D9C3C3;
+        padding: 10px 0;
+    }
+
+    .navbar-menu.active {
+        display: flex;  /* Show menu when active class is applied */
+    }
+
+    .navbar-item {
+        padding: 10px;
+        display: block;  /* Each item takes a line */
+        color: black;
+    }
+
+    .search-bar {
+        order: 1; /* Move search bar to the top */
+        width: 100%; /* Take full width */
+        margin-bottom: 10px;
+        padding: 5px 10px;
+    }
+
+    .search-bar input {
+        width: 80%; /* Input takes 80% of search bar width */
+    }
+
+    .modal-btn {
+        order: 2; /* Move modal button to the second position */
+    }
+
+    .navbar-toggle {
+        position: static;  /* Place the toggle button in the flow */
+        margin-bottom: 10px;
+
+    }
+
+}
+
+
+/* MODAL STYLING */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0; /* Positioned to the right */
+    width: 380px; /* Fixed width */
+    height: 100%;
+    background: rgba(217, 195, 195, 0.8);
+    backdrop-filter: blur(8px);
+    color: black; /* Main text color for the modal is black */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+    box-shadow: -4px 0px 15px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%); /* Hidden initially */
+}
+
+.modal-overlay.show {
+    transform: translateX(0); /* Slide into view from right */
+}
+
+/* Modal Content */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    color: black;  /* Ensure text is black */
+}
+
+.modal-content h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: black;  /* Making the heading black */
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content ul li {
+    margin: 10px 0;
+}
+
+.modal-content ul li a {
+    color: black;  /*Making the links black */
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.modal-content ul li a:hover {
+    color: #f9a826;  /* Making the links on hover to the intended color */
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: black;  /*Ensuring it is black */
+}
+
+.close-btn:hover {
+    color: #f9a826;
+}
+
+/* Button */
+.signup-btn {
+    color: black;  /* Make text black */
+    background-color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.signup-btn:hover {
+    background-color: #D9D9D9;  /*And other intended actions of this code */
+}
