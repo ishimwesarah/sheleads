@@ -36,9 +36,9 @@ const Investing = ({ prevCourse, nextCourse }) => {
       </div>
       
       <div className="course-buttons">
-        <button className="prev-button" onClick={prevCourse}>Previous: Saving</button>
+        <button className="next-button" ><a href="/Saving" style={{ textDecoration: 'none',color:"inherit"}} >Previous: Saving</a></button>
         <button className="quiz-button">Take Quiz</button>
-        <button className="next-button" onClick={nextCourse}>Next: Debt Management</button>
+        <button className="next-button" ><a href="/Debt" style={{ textDecoration: 'none',color:"inherit"}} >Next: Debt Management</a></button>
       </div>
     </div>
   );

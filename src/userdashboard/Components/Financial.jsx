@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 import '../styles/finance.css';
-import image from '../assets/budget.jpg';
-import image1 from '../assets/invest.jpg';
-import image2 from '../assets/save.jpg';
-import image3 from '../assets/debt.jpg';
+import image from '../images/budget.jpg';
+import image1 from '../images/invest.jpg';
+import image2 from '../images/save.jpg';
+import image3 from '../images/debt.jpg';
 
 const CourseCard = ({ image, title, description, buttonText, path }) => {
     return (
@@ -49,7 +49,7 @@ const Courses = () => {
             title: 'Debt Management: Gaining Control of Your Finances',
             description: 'Learn how to effectively manage and reduce debt...',
             buttonText: 'Start a course',
-            path: '/courses/debt-management',
+            path: '/Debt',
         },
     ];
 

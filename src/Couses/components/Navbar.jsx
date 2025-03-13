@@ -34,24 +34,18 @@ function Navbar() {
             </button>
 
             <div className="navbar-brand">
-                <a href="/" className="nav-link" style={{ textDecoration: "none", color: "inherit" }}>She Leads Finance</a>
+                <a href="/Dashbo" className="nav-link" style={{ textDecoration: "none", color: "inherit" }}>She Leads Finance</a>
             </div>
 
             <div className={`navbar-menu ${menuOpen ? "active" : ""}`}>
-                <a href="/" className="navbar-item">Home</a>
+                <a href="/Dashbo" className="navbar-item">Dashboard</a>
                 <a href="/mentorship" className="navbar-item">Mentorship</a>
                 <a href="/contact" className="navbar-item">Contact us</a>
-                <a href="/Join" className="navbar-item">Join Us</a>
+                
             </div>
 
-            {/* Search Bar */}
-            <div className="search-bar">
-                <input type="text" placeholder="Search..." id="searchInput" />
-                <button onClick={handleSearch}>🔍</button>
-            </div>
-
-            
-            
+           
+           
         </nav>
     );
 }

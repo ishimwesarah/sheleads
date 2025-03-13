@@ -16,7 +16,7 @@ const Mentorship = () => {
           <p>
             Every successful entrepreneur had a mentor guiding them. You don’t have to navigate business and finance alone—we’re here to help you grow, step by step.
           </p>
-          <button className="cta-button">Start Your Journey</button>
+          <button className="cta-button"><a href="/contact" style={{ textDecoration: 'none',color:"inherit"}}>Start Your Journey</a></button>
         </div>
         <img src={image} className="hero-image" alt="Mentorship Illustration" />
       </header>
