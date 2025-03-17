@@ -10,27 +10,25 @@ const AuthForm = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
-  const onLoginSubmit = async (data) => {
+  const onSubmit = async (data) => {
     try {
-      const res = await axios.post("http://localhost:5000/user/login", data, {
+      const endpoint = isLogin ? "login" : "register";
+      const res = await axios.post(`http://localhost:5000/user/${endpoint}`, data, {
         headers: { "Content-Type": "application/json" },
       });
-      console.log(res.data);
-      navigate("/dashboard");
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  const onRegisterSubmit = async (data) => {
-    try {
-      const res = await axios.post("http://localhost:5000/user/register", data, {
-        headers: { "Content-Type": "application/json" },
-      });
-      console.log(res.data);
-      navigate("/dashboard");
+      const { token, user } = res.data; // Get user & token from response
+      localStorage.setItem("authToken", token); // Store token in localStorage
+      localStorage.setItem("user", JSON.stringify(user)); // Store user info
+
+      // Redirect based on role
+      if (user.userRole === "admin") {
+        navigate("/Dashboard");
+      } else {
+        navigate("/Dashbo");
+      }
     } catch (error) {
-      console.log(error);
+      console.log("Login/Register Error:", error);
     }
   };
 
@@ -39,7 +37,7 @@ const AuthForm = () => {
       <div className="auth-box">
         <img src={logo} alt="She Leads Finance" className="auth-brand-logo" />
         <h2 className="auth-heading">{isLogin ? "Login to Your Account" : "Create an Account"}</h2>
-        <form onSubmit={handleSubmit(isLogin ? onLoginSubmit : onRegisterSubmit)} className="auth-form">
+        <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
           {!isLogin && (
             <input type="text" placeholder="Full Name" {...register("name", { required: true })} className="auth-input" />
           )}

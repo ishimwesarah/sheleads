@@ -14,13 +14,13 @@ const Sidebar = () => {
         <NavLink to="/Userpage" className="sidebar-item">
           <FiUsers className="icon" /> Users
         </NavLink>
-        <NavLink to="/dashboard/courses" className="sidebar-item">
+        <NavLink to="/CoPage" className="sidebar-item">
           <FiBookOpen className="icon" /> Courses
         </NavLink>
-        <NavLink to="/dashboard/community" className="sidebar-item">
+        <NavLink to="/AdminComm" className="sidebar-item">
           <FiMessageSquare className="icon" /> Community
         </NavLink>
-        <NavLink to="/dashboard/settings" className="sidebar-item">
+        <NavLink to="/AdminSettings" className="sidebar-item">
           <FiSettings className="icon" /> Settings
         </NavLink>
       </nav>

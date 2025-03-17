@@ -24,7 +24,7 @@ const UsersPage = () => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     
     try {
-      await axios.delete(`http://localhost:5000/users/delete/${id}`);
+      await axios.delete(`http://localhost:5000/user/deleteUser/${id}`);
       setUsers(users.filter(user => user._id !== id)); // Remove user from state
     } catch (error) {
       console.error("Error deleting user:", error);
@@ -54,7 +54,7 @@ const UsersPage = () => {
                   <tr key={user._id}>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
-                    <td>{user.role || "Member"}</td>
+                    <td>{user.userRole || "Member"}</td>
                     <td>{new Date(user.createdAt).toLocaleDateString()}</td>
                     <td>
                       <button className="delete-btn" onClick={() => handleDeleteUser(user._id)}>

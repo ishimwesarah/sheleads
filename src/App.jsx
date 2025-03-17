@@ -29,6 +29,11 @@ import CoLayout from "./Couses/components/CoLayout"
 import DashLayout from "./Dashboard/Components/DashLayout"
 import DashDashboard from "./Dashboard/Components/view"
 import UsersPage from "./Dashboard/Components/User"
+import CoursesPage from "./Dashboard/Components/Course"
+import AdminCommunityPage from "./Dashboard/Components/adminComm"
+import ProtectedRoute from "./components/ProtectedRoutes"
+import AdminSettings from "./Dashboard/Components/Setting"
+import ProgressTracker from "./userdashboard/Components/progress"
 
 function App() {
 
@@ -45,15 +50,26 @@ function App() {
        <Route path="/Search"  element={<SearchResults/>} />       
        </Route>
        <Route path="/Join"  element={<AuthModal/>} />
-
+       
        <Route path="/"   element={<DashLayout/>} >
        <Route path="/"   index element={<DashboardView/>} />
+      
+       
+       <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
+       <Route path="/Dashboard"  element={<DashDashboard/>} />
+       </Route>
         <Route path="/Dashboard"  element={<DashDashboard/>} />
         <Route path="/Userpage"  element={<UsersPage/>} />
-
+        <Route path="/CoPage"  element={<CoursesPage/>} />
+        <Route path="/AdminComm"  element={<AdminCommunityPage/>} />
+        <Route path="/AdminSettings"  element={<AdminSettings/>} />
        </Route>    
        <Route path="/"   element={<UserLayout/>} >
        <Route path="/" index element={<DashboardView/>} />
+       <Route element={<ProtectedRoute allowedRoles={["user"]} />}>
+       <Route path="/Dashbo" index element={<DashboardView/>} />
+       <Route path="/progre" index element={<ProgressTracker/>} />
+       </Route>
        <Route path="/Dashbo" index element={<DashboardView/>} />
        <Route path="/Community"  element={<Community/>} />
        <Route path="/Profile"  element={<ProfileModal/>} />

@@ -1,40 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/dash.css";
-import image from "../images/wo2.jpg";
 
 const Sidebar = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const toggleModal = () => setModalOpen(!modalOpen);
+  const [user, setUser] = useState({ name: "Loading...", profilePic: "" });
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+
+    // Listen for profile updates from ProfilePage
+    const handleUserUpdate = () => {
+      const updatedUser = JSON.parse(localStorage.getItem("user"));
+      if (updatedUser) setUser(updatedUser);
+    };
+
+    window.addEventListener("userUpdated", handleUserUpdate);
+    return () => {
+      window.removeEventListener("userUpdated", handleUserUpdate);
+    };
+  }, []);
 
   return (
     <aside className="slf-dashboard-sidebar">
       <div className="slf-sidebar-profile">
-        <img src={image} alt="Profile" className="slf-profile-pic-sidebar" />
-        <h3>Jane Doe</h3>
+        <img 
+          src={user.profilePic || "/default-profile.jpg"} 
+          alt="Profile" 
+          className="slf-profile-pic-sidebar" 
+        />
+        <h3>{user.name}</h3> {/* ✅ Dynamic Name Display */}
       </div>
       <nav className="slf-sidebar-links">
         <ul>
           <li><a href="/Dashbo">Dashboard</a></li>
-          <li onClick={toggleModal} className="slf-resources">Resources</li>
-          {modalOpen && (
-            <div className="slf-modal-overlay" onClick={toggleModal}>
-              <div className="slf-modal-content" onClick={(e) => e.stopPropagation()}>
-                <span className="slf-modal-close-btn" onClick={toggleModal}>×</span>
-                <h2 className="slf-modal-title">DIVE IN</h2>
-                <ul className="slf-modal-links">
-                  <li><a href="/Finance">📊 Financial Education</a></li>
-                  <li><a href="/Tools">📌 Budgeting Tools</a></li>
-                  <li><a href="/Manage">📈 Business Management</a></li>
-                  <li><a href="/Success">🏆 Success Stories</a></li>
-                </ul>
-              </div>
-            </div>
-          )}
           <li><a href="/community">Community</a></li>
           <li><a href="/profile">Profile</a></li>
-          <li><a href="/Home">Logout</a></li>
-          <li><a href="/Community">Progress Tracker</a></li>
+          <li><a href="/progre">Progress Tracker</a></li>
+          <li><a href="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship">Book a Mentor</a></li>
+          
         </ul>
+        <button className="slf-logout-btn" >Logout</button>
       </nav>
     </aside>
   );

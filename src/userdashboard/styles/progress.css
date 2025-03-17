@@ -1,0 +1,54 @@
+.progress-tracker {
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 78%;
+    margin-left: 22%;
+    margin-top: 30px;
+  }
+  
+  .progress-bar {
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .progress-bar-fill {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
+  
+  .milestone-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .milestone-card {
+    width: 45%;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .goals-tracker .goal {
+    margin-bottom: 20px;
+  }
+  
+  .goal-progress-bar {
+    height: 10px;
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
+  
+  .cta button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
