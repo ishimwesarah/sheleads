@@ -112,8 +112,8 @@ const FeatureCard = ({ image, title, descriptionItems }) => {
           supportive community designed for your success."
         </p>
         <div className="hero-buttons">
-          <button className="start-learning"><a href="/Finance" style={{ textDecoration: 'none',color:"inherit"}}>Start learning</a></button>
-          <button className="join-community"><a href="/Community" style={{ textDecoration: 'none' ,color:"inherit"}}>Join the community</a></button>
+          <button className="start-learning"><a href="/Join" style={{ textDecoration: 'none',color:"inherit"}}>Start learning</a></button>
+          <button className="join-community"><a href="/Join" style={{ textDecoration: 'none' ,color:"inherit"}}>Join the community</a></button>
         </div>
       </div>
       <div className="hero-image">
@@ -168,7 +168,7 @@ const FeatureCard = ({ image, title, descriptionItems }) => {
             </div>
         </section>
         <h2 className='hhhh'>Join hundreds of women on the path to financial freedom and business success.</h2>
-        <button className='sign'><a href='/Community' style={{textDecoration:"none", color:"inherit"}}>Join the Community</a></button>
+        <button className='sign'><a href='/Join' style={{textDecoration:"none", color:"inherit"}}>Join the Community</a></button>
     </div>
   )
 }

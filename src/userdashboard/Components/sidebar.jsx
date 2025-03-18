@@ -24,6 +24,7 @@ const Sidebar = () => {
 
   return (
     <aside className="slf-dashboard-sidebar">
+      
       <div className="slf-sidebar-profile">
         <img 
           src={user.profilePic || "/default-profile.jpg"} 
@@ -41,7 +42,7 @@ const Sidebar = () => {
           <li><a href="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship">Book a Mentor</a></li>
           
         </ul>
-        <button className="slf-logout-btn" >Logout</button>
+        <button className="slf-logout-btn" ><a href="/Home">Logout</a></button>
       </nav>
     </aside>
   );

@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../Styles/CommunityPage.css";
 
-
 const AdminCommunityPage = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]); // Initialize as an empty array
 
   // Fetch all community posts from the database
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const res = await axios.get("http://localhost:5000/community/getpost");
-        setPosts(res.data);
+        setPosts(Array.isArray(res.data) ? res.data : []); // Ensure it's an array
       } catch (error) {
         console.error("Error fetching posts:", error);
+        setPosts([]); // Fallback to empty array on error
       }
     };
 
@@ -26,7 +26,7 @@ const AdminCommunityPage = () => {
 
     try {
       await axios.delete(`http://localhost:5000/community/delete/${id}`);
-      setPosts(posts.filter(post => post._id !== id));
+      setPosts(posts.filter((post) => post._id !== id));
     } catch (error) {
       console.error("Error deleting post:", error);
     }
@@ -34,9 +34,7 @@ const AdminCommunityPage = () => {
 
   return (
     <div className="admin-community-container">
-      
       <div className="admin-community-content">
-       
         <div className="admin-community-main">
           <h1>Community Posts</h1>
           <table className="admin-community-table">
@@ -57,20 +55,24 @@ const AdminCommunityPage = () => {
                     <td>{post.content}</td>
                     <td>{post.likes}</td>
                     <td>
-                      {post.comments.length > 0 ? (
-                        <ul>
-                          {post.comments.map((comment, index) => (
-                            <li key={index} className="admin-community-comment">
-                              <strong>{comment.user}:</strong> {comment.text}
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        "No comments"
-                      )}
-                    </td>
+  {post.replies && post.replies.length > 0 ? (
+    <ul>
+      {post.replies.map((reply, index) => (
+        <li key={index} className="admin-community-comment">
+          <strong>{reply.userId?.name || "Anonymous"}:</strong> {reply.text}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    "No comments"
+  )}
+</td>
+
                     <td>
-                      <button className="admin-delete-btn" onClick={() => handleDeletePost(post._id)}>
+                      <button
+                        className="admin-delete-btn"
+                        onClick={() => handleDeletePost(post._id)}
+                      >
                         Delete
                       </button>
                     </td>

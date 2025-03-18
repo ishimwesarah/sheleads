@@ -15,7 +15,7 @@
 .slf-logout-btn{
   margin-bottom: 0;
   margin-top: 80%;
-  background-color: #D9C3C3;
+  background-color: #E1B5B5;
 }
 
 .slf-sidebar-profile {
@@ -27,7 +27,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #F4A261; /* Gold accent */
+  border: 3px solid #E1B5B5; /* Gold accent */
 }
 
 .slf-sidebar-profile h3 {
@@ -54,13 +54,13 @@
 }
 
 .slf-sidebar-links a {
-  color: #FFFFFF;
+  color: black;
   text-decoration: none;
   display: block;
 }
 
 .slf-sidebar-links li:hover {
-  background-color: #F4A261; /* Gold highlight on hover */
+  background-color: #E1B5B5; /* Gold highlight on hover */
   color: #002147;
 }
 
@@ -122,7 +122,7 @@
 }
 
 .slf-modal-links a:hover {
-  color: #F4A261;
+  color: #E1B5B5;
 }
 
 .slf-modal-close-btn {
@@ -157,7 +157,7 @@
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #F4A261; /* Gold accent for elegance */
+  color: #E1B5B5; /* Gold accent for elegance */
 }
 .slf-dashboard-wrapper {
   width: 80%;
@@ -184,7 +184,7 @@
   font-size: 22px;
   font-weight: bold;
   color: #002147; /* Deep navy blue */
-  border-bottom: 2px solid #F4A261; /* Gold accent underline */
+  border-bottom: 2px solid #E1B5B5; /* Gold accent underline */
   padding-bottom: 5px;
   margin-bottom: 15px;
 }
@@ -202,7 +202,7 @@
 }
 
 .slf-tools-links a:hover {
-  background: #F4A261; /* Gold accent on hover */
+  background: #E1B5B5; /* Gold accent on hover */
 }
 
 .slf-progress-tracker {
@@ -230,11 +230,13 @@
   color: #002147;
 }
 .slf-resources-btn {
-  padding: 10px 15px;
-  background-color: #4CAF50; /* Green background for button */
+  padding: 10px 25px;
+  background-color: #898989; /* Green background for button */
   color: white;
   border: none;
   cursor: pointer;
+  margin-left: 60%;
+
 }
 
 .slf-modal-overlay {

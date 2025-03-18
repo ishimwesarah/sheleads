@@ -23,8 +23,8 @@ const Navbar = () => {
       </div>
 
       <div className="app-navbar-icons">
-        <FiBell className="app-icon" />
-        <FiUser className="app-icon" onClick={toggleLogout} />
+        <button className="app-icon">Add a mentor</button>
+        <button className="app-icon" onClick={toggleLogout}>Logout</button> 
       </div>
 
       {/* ✅ Logout Modal */}
