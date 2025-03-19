@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 import '../styles/finance.css';
-import image from '../../images/budget.jpg';
-import image1 from '../../images/invest.jpg';
-import image2 from '../../images/save.jpg';
-import image3 from '../../images/debt.jpg';
+import image from '../images/budget.jpg';
+import image1 from '../images/invest.jpg';
+import image2 from '../images/save.jpg';
+import image3 from '../images/debt.jpg';
 
 const CourseCard = ({ image, title, description, buttonText, path }) => {
     return (

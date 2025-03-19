@@ -1,8 +1,8 @@
 import React from "react";
 // import "./CourseStyles.css";
-import investingImg1 from "../assets/bm.jpg";
-import investingImg2 from "../assets/bm.jpg";
-import investingImg3 from "../assets/bm.jpg";
+import investingImg1 from "../../assets/bm.jpg";
+import investingImg2 from "../../assets/bm.jpg";
+import investingImg3 from "../../assets/bm.jpg";
 
 const Debt = ({ prevCourse, nextCourse }) => {
   return (

@@ -1,9 +1,9 @@
 import React from "react";
 import "../styles/coursestyle.css";
-import budgetImg1 from "../assets/Budd.jpg";
-import budgetImg2 from "../assets/budd2.jpg";
-import budgetImg3 from "../assets/budd3.jpg";
-import image from "../assets/mon.jpg"
+import budgetImg1 from "../../assets/Budd.jpg";
+import budgetImg2 from "../../assets/budd2.jpg";
+import budgetImg3 from "../../assets/budd3.jpg";
+import image from "../../assets/mon.jpg"
 
 const Budgeting = ({ nextCourse }) => {
   return (

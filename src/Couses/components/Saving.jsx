@@ -1,8 +1,8 @@
 import React from "react";
 // import "./CourseStyles.css";
-import savingImg1 from "../assets/bm.jpg";
-import savingImg2 from "../assets/bm.jpg";
-import savingImg3 from "../assets/bm.jpg";
+import savingImg1 from "../../assets/bm.jpg";
+import savingImg2 from "../../assets/bm.jpg";
+import savingImg3 from "../../assets/bm.jpg";
 
 const Saving = ({ prevCourse, nextCourse }) => {
   return (
