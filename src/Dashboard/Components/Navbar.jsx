@@ -23,7 +23,7 @@ const Navbar = () => {
       </div>
 
       <div className="app-navbar-icons">
-        <button className="app-icon">Add a mentor</button>
+        
         <button className="app-icon" onClick={toggleLogout}>Logout</button> 
       </div>
 

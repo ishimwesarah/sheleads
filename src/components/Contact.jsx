@@ -107,14 +107,7 @@ const ContactUs = () => {
         {statusMessage && <p>{statusMessage}</p>}
       </section>
 
-      {/* Other Contact Details */}
-      <section className="contact-info">
-        <h2>Our Contact Details</h2>
-        <p>Email: contact@sheleadsfinance.com</p>
-        <p>Phone: +123 456 7890</p>
-        <p>Address: 123 Business Street, City, Country</p>
-      </section>
-
+    
       {/* Social Media Links */}
       <section className="social-media">
         <h2>Follow Us</h2>
