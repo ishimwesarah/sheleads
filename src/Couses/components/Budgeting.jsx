@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/coursestyle.css";
 import budgetImg1 from "../../assets/budd.jpg";
 import budgetImg2 from "../../assets/budd2.jpg";
@@ -92,7 +93,7 @@ For those sharing finances, lack of communication can lead to conflicting spendi
       
       <div className="course-buttons">
         <button className="quiz-button">Take Quiz</button>
-        <button className="next-button" ><a href="/Saving" style={{ textDecoration: 'none',color:"inherit"}}>Next: Saving </a></button>
+        <button className="next-button" ><Link to="/Saving" style={{ textDecoration: 'none',color:"inherit"}}>Next: Saving </Link></button>
       </div>
     </div>
   );

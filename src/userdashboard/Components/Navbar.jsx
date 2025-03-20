@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/dash.css";
 
 const Navbar = () => {
@@ -63,10 +64,10 @@ const Navbar = () => {
             <span className="slf-modal-close-btn" onClick={toggleModal}>×</span>
             <h2 className="slf-modal-title">DIVE IN</h2>
             <ul className="slf-modal-links">
-              <li><a href="/Finance">📊 Financial Education</a></li>
-              <li><a href="/Tools">📌 Budgeting Tools</a></li>
-              <li><a href="/Manage">📈 Business Management</a></li>
-              <li><a href="/Success">🏆 Success Stories</a></li>
+              <li><Link to="/Finance">📊 Financial Education</Link></li>
+              <li><Link to="/Tools">📌 Budgeting Tools</Link></li>
+              <li><Link to="/Manage">📈 Business Management</Link></li>
+              <li><Link to="/Success">🏆 Success Stories</Link></li>
             </ul>
           </div>
         </div>

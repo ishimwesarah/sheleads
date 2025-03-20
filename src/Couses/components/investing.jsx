@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import "./CourseStyles.css";
 import investingImg1 from "../../assets/bm.jpg";
 import investingImg2 from "../../assets/bm.jpg";
@@ -36,9 +37,9 @@ const Investing = ({ prevCourse, nextCourse }) => {
       </div>
       
       <div className="course-buttons">
-        <button className="next-button" ><a href="/Saving" style={{ textDecoration: 'none',color:"inherit"}} >Previous: Saving</a></button>
+        <button className="next-button" ><Link to="/Saving" style={{ textDecoration: 'none',color:"inherit"}} >Previous: Saving</Link></button>
         <button className="quiz-button">Take Quiz</button>
-        <button className="next-button" ><a href="/Debt" style={{ textDecoration: 'none',color:"inherit"}} >Next: Debt Management</a></button>
+        <button className="next-button" ><Link to="/Debt" style={{ textDecoration: 'none',color:"inherit"}} >Next: Debt Management</Link></button>
       </div>
     </div>
   );

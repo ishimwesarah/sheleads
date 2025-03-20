@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 import "../styles/dash.css";
 
 const DashboardView = () => {
@@ -16,9 +16,9 @@ const DashboardView = () => {
           <section className="slf-financial-tools">
             <h2 className="slf-section-title">Your Financial Tools</h2>
             <div className="slf-tools-links">
-              <a href="/everydollar">EveryDollar</a>
-              <a href="/goodbudget">GoodBudget</a>
-              <a href="/ynab">YNAB</a>
+              <Link to="/everydollar">EveryDollar</Link>
+              <Link to="/goodbudget">GoodBudget</Link>
+              <Link to="/ynab">YNAB</Link>
             </div>
           </section>
 

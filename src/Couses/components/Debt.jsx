@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // import "./CourseStyles.css";
 import investingImg1 from "../../assets/bm.jpg";
 import investingImg2 from "../../assets/bm.jpg";
@@ -34,7 +35,7 @@ This is unsecured, revolving debt that allows consumers to borrow up to a certai
         
       
       <div className="course-buttons">
-        <button className="next-button"><a href="/Investing"  style={{ textDecoration: 'none',color:"inherit"}} >Previous: Investing</a></button>
+        <button className="next-button"><Link to="/Investing"  style={{ textDecoration: 'none',color:"inherit"}} >Previous: Investing</Link></button>
         <button className="quiz-button">Take Quiz</button>
        
       </div>

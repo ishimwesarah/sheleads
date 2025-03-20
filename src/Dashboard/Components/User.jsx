@@ -10,7 +10,7 @@ const UsersPage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/user/getuser");
+        const res = await axios.get("https://sheleadsbackend.onrender.com/user/getuser");
         setUsers(res.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -24,7 +24,7 @@ const UsersPage = () => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     
     try {
-      await axios.delete(`http://localhost:5000/user/deleteUser/${id}`);
+      await axios.delete(`https://sheleadsbackend.onrender.com/user/deleteUser/${id}`);
       setUsers(users.filter(user => user._id !== id)); // Remove user from state
     } catch (error) {
       console.error("Error deleting user:", error);

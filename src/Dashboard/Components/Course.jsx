@@ -22,7 +22,7 @@ const CoursesPage = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/course/getCourse");
+        const res = await axios.get("https://sheleadsbackend.onrender.com/course/getCourse");
         setCourses(res.data);
       } catch (error) {
         console.error("Error fetching courses:", error);
@@ -37,7 +37,7 @@ const CoursesPage = () => {
     if (!window.confirm("Are you sure you want to delete this course?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/course/deleteCourse/${id}`);
+      await axios.delete(`https://sheleadsbackend.onrender.com/course/deleteCourse/${id}`);
       setCourses(courses.filter(course => course._id !== id));
     } catch (error) {
       console.error("Error deleting course:", error);
@@ -58,7 +58,7 @@ const CoursesPage = () => {
   // Handle update course
   const handleUpdateCourse = async (id) => {
     try {
-      await axios.put(`http://localhost:5000/course/updateCourse/${id}`, updatedCourse);
+      await axios.put(`https://sheleadsbackend.onrender.com/course/updateCourse/${id}`, updatedCourse);
       setCourses(courses.map(course => (course._id === id ? { ...course, ...updatedCourse } : course)));
       setEditingCourse(null);
     } catch (error) {
@@ -71,7 +71,7 @@ const CoursesPage = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/course/createCourse", newCourse);
+      const res = await axios.post("https://sheleadsbackend.onrender.com/course/createCourse", newCourse);
       setCourses([...courses, res.data]); // Add new course to the state
       setShowForm(false); // Hide form after adding
       setNewCourse({ title: "", description: "", instructor: "", duration: "", image: "" }); // Reset form

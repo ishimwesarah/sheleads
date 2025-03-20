@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/dash.css";
 
 const Sidebar = () => {
@@ -35,14 +36,14 @@ const Sidebar = () => {
       </div>
       <nav className="slf-sidebar-links">
         <ul>
-          <li><a href="/Dashbo">Dashboard</a></li>
-          <li><a href="/community">Community</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/progre">Progress Tracker</a></li>
-          <li><a href="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship">Book a Mentor</a></li>
+          <li><Link to="/Dashbo">Dashboard</Link></li>
+          <li><Link to="/community">Community</Link></li>
+          <li><Link to="/profile">Profile</Link></li>
+          <li><Link to="/progre">Progress Tracker</Link></li>
+          <li><Link to="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship">Book a Mentor</Link></li>
           
         </ul>
-        <button className="slf-logout-btn" ><a href="/Home">Logout</a></button>
+        <button className="slf-logout-btn" ><Link to="/Home">Logout</Link></button>
       </nav>
     </aside>
   );

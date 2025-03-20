@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/Navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { useNavigate, Link } from 'react-router-dom'; // Import useNavigate hook
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -34,13 +34,13 @@ function Navbar() {
             </button>
 
             <div className="navbar-brand">
-                <a href="/Dashbo" className="nav-link" style={{ textDecoration: "none", color: "inherit" }}>She Leads Finance</a>
+                <Link to="/Dashbo" className="nav-link" style={{ textDecoration: "none", color: "inherit" }}>She Leads Finance</Link>
             </div>
 
             <div className={`navbar-menu ${menuOpen ? "active" : ""}`}>
-                <a href="/Dashbo" className="navbar-item">Dashboard</a>
-                <a href="/mentorship" className="navbar-item">Mentorship</a>
-                <a href="/contact" className="navbar-item">Contact us</a>
+                <Link to="/Dashbo" className="navbar-item">Dashboard</Link>
+                <Link to="/mentorship" className="navbar-item">Mentorship</Link>
+                <Link to="/contact" className="navbar-item">Contact us</Link>
                 
             </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Styles/CommunityPage.css";
 
@@ -9,7 +10,7 @@ const AdminCommunityPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/community/getpost");
+        const res = await axios.get("https://sheleadsbackend.onrender.com/community/getpost");
         setPosts(Array.isArray(res.data) ? res.data : []); // Ensure it's an array
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -25,7 +26,7 @@ const AdminCommunityPage = () => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/community/delete/${id}`);
+      await axios.delete(`https://sheleadsbackend.onrender.com/community/delete/${id}`);
       setPosts(posts.filter((post) => post._id !== id));
     } catch (error) {
       console.error("Error deleting post:", error);
