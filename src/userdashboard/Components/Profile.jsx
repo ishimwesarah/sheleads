@@ -3,24 +3,29 @@ import axios from "axios";
 import "../styles/Profile.css";
 
 const ProfilePage = () => {
-  const [user, setUser] = useState({ name: "", email: "", profilePic: "", _id: "" });
+  const [user, setUser] = useState({ name: "", email: "", profilePic: "" });
   const [selectedImage, setSelectedImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState("");
 
+  // ✅ Load user from localStorage on mount
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
       setUser(storedUser);
+      setPreviewImage(storedUser.profilePic || "/default-profile.jpg");
     }
   }, []);
 
+  // ✅ Handle File Selection & Show Preview
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setSelectedImage(file);
-      setUser((prevUser) => ({ ...prevUser, profilePic: URL.createObjectURL(file) })); // ✅ Preview image before upload
+      setPreviewImage(URL.createObjectURL(file)); // ✅ Show preview before upload
     }
   };
 
+  // ✅ Upload Image to Cloudinary & Update User Profile
   const handleImageUpload = async () => {
     if (!selectedImage) {
       alert("Please select an image first.");
@@ -32,7 +37,7 @@ const ProfilePage = () => {
 
     try {
       const res = await axios.put(
-        `http://localhost:5000/user/upload-profile/${user._id}`, // ✅ Fixed missing `id`
+        "http://localhost:5000/user/upload-profile", // ✅ Corrected API Endpoint
         formData,
         {
           headers: {
@@ -44,11 +49,13 @@ const ProfilePage = () => {
 
       const updatedUser = { ...user, profilePic: res.data.profilePic };
       setUser(updatedUser);
-      localStorage.setItem("user", JSON.stringify(updatedUser)); // ✅ Save to localStorage
-      window.dispatchEvent(new Event("userUpdated")); // ✅ Update sidebar
-      setSelectedImage(null); // ✅ Clear selected image after upload
+      setPreviewImage(res.data.profilePic); // ✅ Update preview with uploaded image
+      localStorage.setItem("user", JSON.stringify(updatedUser)); // ✅ Save updated user data
+      window.dispatchEvent(new Event("userUpdated")); // ✅ Trigger sidebar update
+      setSelectedImage(null); // ✅ Clear file input
     } catch (error) {
       console.error("Error uploading image:", error);
+      alert("Image upload failed!");
     }
   };
 
@@ -58,7 +65,7 @@ const ProfilePage = () => {
 
       <div className="profile-card">
         <img
-          src={user.profilePic || "/default-profile.jpg"} // ✅ Updated to show preview before upload
+          src={previewImage} // ✅ Show preview before upload
           alt="Profile"
           className="profile-image"
         />

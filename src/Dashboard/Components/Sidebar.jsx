@@ -20,6 +20,9 @@ const Sidebar = () => {
         <NavLink to="/AdminComm" className="sidebar-item">
           <FiMessageSquare className="icon" /> Community
         </NavLink>
+        <NavLink to="/mentor" className="sidebar-item">
+          <FiMessageSquare className="icon" /> Mentors
+        </NavLink>
         <NavLink to="/AdminSettings" className="sidebar-item">
           <FiSettings className="icon" /> Settings
         </NavLink>

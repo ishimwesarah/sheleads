@@ -28,6 +28,7 @@
   height: 80px;
   border-radius: 50%;
   border: 3px solid #E1B5B5; /* Gold accent */
+  
 }
 
 .slf-sidebar-profile h3 {
@@ -157,7 +158,8 @@
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #E1B5B5; /* Gold accent for elegance */
+  color: #E1B5B5; 
+  margin-left: -20px;
 }
 .slf-dashboard-wrapper {
   width: 80%;
@@ -230,12 +232,12 @@
   color: #002147;
 }
 .slf-resources-btn {
-  padding: 10px 25px;
+  padding: 10px 5px;
   background-color: #898989; /* Green background for button */
   color: white;
   border: none;
   cursor: pointer;
-  margin-left: 60%;
+  margin-left: 10%;
 
 }
 
@@ -278,4 +280,20 @@
 .slf-modal-links a {
   text-decoration: none;
   color: #333;
+}
+.slf-profile {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  margin-left: 150px;
+}
+
+.slf-profile-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image fits properly */
+  border: 2px solid #ccc;
 }

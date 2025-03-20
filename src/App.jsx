@@ -34,6 +34,7 @@ import AdminCommunityPage from "./Dashboard/Components/adminComm"
 import ProtectedRoute from "./components/ProtectedRoutes"
 import AdminSettings from "./Dashboard/Components/Setting"
 import ProgressTracker from "./userdashboard/Components/progress"
+import MentorAdminPage from "./Dashboard/Components/mentor"
 
 function App() {
 
@@ -63,6 +64,8 @@ function App() {
         <Route path="/CoPage"  element={<CoursesPage/>} />
         <Route path="/AdminComm"  element={<AdminCommunityPage/>} />
         <Route path="/AdminSettings"  element={<AdminSettings/>} />
+        <Route path="/mentor"  element={<MentorAdminPage/>} />
+
        </Route>    
        <Route path="/"   element={<UserLayout/>} >
        <Route path="/" index element={<DashboardView/>} />

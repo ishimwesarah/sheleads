@@ -1,0 +1,57 @@
+.mentor-container {
+    padding: 20px;
+    width: 78%;
+    margin-left: 25%;
+    margin-top: 20px;
+  }
+  
+  .mentor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+  }
+  
+  .mentor-form input, .mentor-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .mentor-form button {
+    background: #e0b3b8;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mentor-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .mentor-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .mentor-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .mentor-card button {
+    background: #ccc;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .mentor-card button:hover {
+    background: #e0b3b8;
+    color: white;
+  }
+  
