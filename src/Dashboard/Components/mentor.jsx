@@ -50,7 +50,7 @@ const MentorManagement = () => {
     }
 
     try {
-      await axios.post("https://sheleadsbackend.onrender.com/mentor/addmentor", formData, {
+      await axios.post("http://localhost:5000/mentor/addmentor", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       fetchMentors();

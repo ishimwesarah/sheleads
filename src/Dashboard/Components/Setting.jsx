@@ -12,7 +12,7 @@ const AdminSettings = () => {
     // Fetch admin details
     const fetchAdminDetails = async () => {
       try {
-        const res = await axios.get("https://sheleadsbackend.onrender.com/admin/details", {
+        const res = await axios.get("http://localhost:5000/admin/details", {
           headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
         });
         setAdmin(res.data);
@@ -27,7 +27,7 @@ const AdminSettings = () => {
   const handleProfileUpdate = async () => {
     try {
       await axios.put(
-        "https://sheleadsbackend.onrender.com/admin/update",
+        "http://localhost:5000/admin/update",
         { name: admin.name, email: admin.email, profilePic: admin.profilePic },
         { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` } }
       );
@@ -40,7 +40,7 @@ const AdminSettings = () => {
   const handlePasswordChange = async () => {
     try {
       await axios.put(
-        "https://sheleadsbackend.onrender.com/admin/change-password",
+        "http://localhost:5000/admin/change-password",
         { password: newPassword },
         { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` } }
       );
@@ -54,7 +54,7 @@ const AdminSettings = () => {
   const handleSettingsChange = async () => {
     try {
       await axios.put(
-        "https://sheleadsbackend.onrender.com/admin/settings",
+        "http://localhost:5000/admin/settings",
         settings,
         { headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` } }
       );

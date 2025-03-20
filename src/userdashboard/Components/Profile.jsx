@@ -37,7 +37,7 @@ const ProfilePage = () => {
 
     try {
       const res = await axios.put(
-        "https://sheleadsbackend.onrender.com/user/upload-profile", // ✅ Corrected API Endpoint
+        "http://localhost:5000/user/upload-profile", // ✅ Corrected API Endpoint
         formData,
         {
           headers: {

@@ -17,10 +17,10 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const usersRes = await axios.get("https://sheleadsbackend.onrender.com/user/getUser");
-        const coursesRes = await axios.get("https://sheleadsbackend.onrender.com/course/getCourse");
-        const communityRes = await axios.get("https://sheleadsbackend.onrender.com/community/getpost");
-        const mentorsRes = await axios.get("https://sheleadsbackend.onrender.com/mentor/getmentor");
+        const usersRes = await axios.get("http://localhost:5000/user/getUser");
+        const coursesRes = await axios.get("http://localhost:5000/course/getCourse");
+        const communityRes = await axios.get("http://localhost:5000/community/getpost");
+        const mentorsRes = await axios.get("http://localhost:5000/mentor/getmentor");
 
         setStats({
           users: usersRes.data.length,

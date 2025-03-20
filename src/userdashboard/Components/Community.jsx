@@ -13,7 +13,7 @@ const Community = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await axios.get("https://sheleadsbackend.onrender.com/community/getpost");
+        const res = await axios.get("http://localhost:5000/community/getpost");
         setMessages(Array.isArray(res.data) ? res.data : []); // Ensure it's an array
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -40,7 +40,7 @@ const Community = () => {
       };
 
       const res = await axios.post(
-        "https://sheleadsbackend.onrender.com/community/Createpost",
+        "http://localhost:5000/community/Createpost",
         newMessage,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
@@ -58,7 +58,7 @@ const Community = () => {
   const likeMessage = async (id) => {
     try {
       const res = await axios.put(
-        `https://sheleadsbackend.onrender.com/community/like/${id}`,
+        `http://localhost:5000/community/like/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
@@ -78,7 +78,7 @@ const Community = () => {
   // Delete message
   const deleteMessage = async (id) => {
     try {
-      await axios.delete(`https://sheleadsbackend.onrender.com/community/delete/${id}`, {
+      await axios.delete(`http://localhost:5000/community/delete/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },
       });
       setMessages(messages.filter((msg) => msg._id !== id));
@@ -96,7 +96,7 @@ const Community = () => {
 
     try {
       const res = await axios.post(
-        `https://sheleadsbackend.onrender.com/community/reply/${id}`,
+        `http://localhost:5000/community/reply/${id}`,
         { text: replyText },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("authToken")}` },

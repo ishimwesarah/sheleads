@@ -13,7 +13,7 @@ const AuthForm = () => {
   const onSubmit = async (data) => {
     try {
       const endpoint = isLogin ? "login" : "register";
-      const res = await axios.post(`https://sheleadsbackend.onrender.com/user/${endpoint}`, data, {
+      const res = await axios.post(`http://localhost:5000/user/${endpoint}`, data, {
         headers: { "Content-Type": "application/json" },
       });
 
