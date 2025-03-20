@@ -8,6 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    "homepage": "https://ishimwesarah.github.io/sheleads"
+
   },
   "dependencies": {
     "axios": "^1.8.2",
