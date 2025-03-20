@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/Sidebar.css";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FiHome, FiUsers, FiBookOpen, FiMessageSquare, FiSettings } from "react-icons/fi";
 
 const Sidebar = () => {
@@ -8,24 +8,24 @@ const Sidebar = () => {
     <div className="sidebar">
       <h2 className="sidebar-title">Dashboard</h2>
       <nav className="sidebar-nav">
-        <NavLink to="/dashboard" className="sidebar-item">
+        <Link to="/dashboard" className="sidebar-item">
           <FiHome className="icon" /> Overview
-        </NavLink>
-        <NavLink to="/Userpage" className="sidebar-item">
+        </Link>
+        <Link to="/Userpage" className="sidebar-item">
           <FiUsers className="icon" /> Users
-        </NavLink>
-        <NavLink to="/CoPage" className="sidebar-item">
+        </Link>
+        <Link to="/CoPage" className="sidebar-item">
           <FiBookOpen className="icon" /> Courses
-        </NavLink>
-        <NavLink to="/AdminComm" className="sidebar-item">
+        </Link>
+        <Link to="/AdminComm" className="sidebar-item">
           <FiMessageSquare className="icon" /> Community
-        </NavLink>
-        <NavLink to="/mentor" className="sidebar-item">
+        </Link>
+        <Link to="/mentor" className="sidebar-item">
           <FiMessageSquare className="icon" /> Mentors
-        </NavLink>
-        <NavLink to="/AdminSettings" className="sidebar-item">
+        </Link>
+        <Link to="/AdminSettings" className="sidebar-item">
           <FiSettings className="icon" /> Settings
-        </NavLink>
+        </Link>
       </nav>
     </div>
   );
