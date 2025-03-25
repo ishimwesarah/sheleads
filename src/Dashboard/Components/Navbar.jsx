@@ -12,7 +12,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("user");
-    window.location.Link = "/"; // Redirect to login page
+    window.location.href = "/"; // Redirect to login page
   };
 
   return (

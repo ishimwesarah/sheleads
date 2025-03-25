@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/mentor.css";
 import image from '../assets/ment.jpg'
 import image1 from '../assets/wo2.jpg'
@@ -16,7 +17,7 @@ const Mentorship = () => {
           <p>
             Every successful entrepreneur had a mentor guiding them. You don’t have to navigate business and finance alone—we’re here to help you grow, step by step.
           </p>
-          <button className="cta-button"><a href="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship" style={{ textDecoration: 'none',color:"inherit"}}>Start Your Journey</a></button>
+          <button className="cta-button"><Link to="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship" style={{ textDecoration: 'none',color:"inherit"}}>Start Your Journey</Link></button>
         </div>
         <img src={image} className="hero-image" alt="Mentorship Illustration" />
       </header>
@@ -78,7 +79,7 @@ const Mentorship = () => {
         <p>
           Your success story starts today. Join a community of driven women building financial confidence and business success.
         </p>
-        <button className="cta-button"><a href="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship" style={{ textDecoration: 'none',color:"inherit"}}>Start Your Journey</a></button>
+        <button className="cta-button"><Link to="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship" style={{ textDecoration: 'none',color:"inherit"}}>Start Your Journey</Link></button>
       </section>
     </div>
   );
