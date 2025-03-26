@@ -7,12 +7,12 @@ const ProfilePage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [previewImage, setPreviewImage] = useState("");
 
-  // ✅ Load user from localStorage on mount
+  // ✅ Load user from localStorage
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
       setUser(storedUser);
-      setPreviewImage(storedUser.profilePic || "https://res.cloudinary.com/ddfhybgob/image/upload/v1742391970/pr_fdqujg.avif");
+      setPreviewImage(storedUser.profilePic || "/default-profile.jpg");
     }
   }, []);
 
@@ -21,7 +21,7 @@ const ProfilePage = () => {
     const file = e.target.files[0];
     if (file) {
       setSelectedImage(file);
-      setPreviewImage(URL.createObjectURL(file)); // ✅ Show preview before upload
+      setPreviewImage(URL.createObjectURL(file)); // Show preview before upload
     }
   };
 
@@ -33,29 +33,36 @@ const ProfilePage = () => {
     }
   
     const formData = new FormData();
-    formData.append("image", selectedImage); // ✅ Match this with multer field
+    formData.append("image", selectedImage);
   
     try {
+      const token = localStorage.getItem("authToken"); // ✅ Get Token from Local Storage
+      if (!token) {
+        alert("You are not logged in. Please log in again.");
+        return;
+      }
+  
       const res = await axios.put(
         "http://localhost:5000/user/upload-profile",
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
   
+      console.log("Upload successful:", res.data);
       const updatedUser = { ...user, profilePic: res.data.profilePic };
       setUser(updatedUser);
-      setPreviewImage(res.data.profilePic);
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-      window.dispatchEvent(new Event("userUpdated"));
+      setPreviewImage(res.data.profilePic); // ✅ Update UI
+      localStorage.setItem("user", JSON.stringify(updatedUser)); // ✅ Save updated user data
+      window.dispatchEvent(new Event("userUpdated")); // ✅ Trigger sidebar update
       setSelectedImage(null);
     } catch (error) {
-      console.error("Error uploading image:", error.response?.data || error);
-      alert("Image upload failed!");
+      console.error("Error uploading image:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Upload failed. Please try again.");
     }
   };
   
@@ -66,14 +73,9 @@ const ProfilePage = () => {
       <h2 className="profile-title">My Profile</h2>
 
       <div className="profile-card">
-        <img
-          src={previewImage} // ✅ Show preview before upload
-          alt="Profile"
-          className="profile-image"
-        />
+        <img src={previewImage} alt="Profile" className="profile-image" />
         <h3>{user.name}</h3>
         <p>Email: {user.email}</p>
-        <p>Role: Member</p>
 
         <input type="file" onChange={handleFileChange} className="upload-input" />
         <button onClick={handleImageUpload} className="edit-btn">Save Profile Picture</button>
