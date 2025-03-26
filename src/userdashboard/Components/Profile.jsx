@@ -12,7 +12,7 @@ const ProfilePage = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser) {
       setUser(storedUser);
-      setPreviewImage(storedUser.profilePic || "/default-profile.jpg");
+      setPreviewImage(storedUser.profilePic || "https://res.cloudinary.com/ddfhybgob/image/upload/v1742391970/pr_fdqujg.avif");
     }
   }, []);
 
@@ -31,13 +31,13 @@ const ProfilePage = () => {
       alert("Please select an image first.");
       return;
     }
-
+  
     const formData = new FormData();
-    formData.append("image", selectedImage);
-
+    formData.append("image", selectedImage); // ✅ Match this with multer field
+  
     try {
       const res = await axios.put(
-        "http://localhost:5000/user/upload-profile", // ✅ Corrected API Endpoint
+        "http://localhost:5000/user/upload-profile",
         formData,
         {
           headers: {
@@ -46,18 +46,20 @@ const ProfilePage = () => {
           },
         }
       );
-
+  
       const updatedUser = { ...user, profilePic: res.data.profilePic };
       setUser(updatedUser);
-      setPreviewImage(res.data.profilePic); // ✅ Update preview with uploaded image
-      localStorage.setItem("user", JSON.stringify(updatedUser)); // ✅ Save updated user data
-      window.dispatchEvent(new Event("userUpdated")); // ✅ Trigger sidebar update
-      setSelectedImage(null); // ✅ Clear file input
+      setPreviewImage(res.data.profilePic);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      window.dispatchEvent(new Event("userUpdated"));
+      setSelectedImage(null);
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error uploading image:", error.response?.data || error);
       alert("Image upload failed!");
     }
   };
+  
+  
 
   return (
     <div className="profile-container">
