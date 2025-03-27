@@ -1,48 +1,53 @@
-import React from 'react';
-import '../styles/success.css';
-import success1 from '../assets/wo1.jpg';
-import success2 from '../assets/wo2.jpg';
-import success3 from '../assets/wo3.jpg';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "../styles/success.css";
+import success1 from "../assets/wo1.jpg";
+
 
 const SuccessStories = () => {
-    const stories = [
-        {
-            image: success1,
-            name: 'Sarah M.',
-            before: 'Struggled with budgeting, had no savings.',
-            after: 'Now saves $500/month and invests regularly.',
-            quote: 'She Leads Finance changed my financial future!'
-        },
-        {
-            image: success2,
-            name: 'Lisa K.',
-            before: 'Had no business plan, struggled to attract clients.',
-            after: 'Built a profitable online store with steady customers.',
-            quote: 'I finally understand business finances!'
-        },
-        {
-            image: success3,
-            name: 'Jessica R.',
-            before: 'Drowning in debt and unsure how to manage money.',
-            after: 'Cleared $10,000 in debt and created a stable budget.',
-            quote: 'I feel in control of my money for the first time!'
-        }
-    ];
+    const navigate = useNavigate();
+    const [blogs, setBlogs] = useState(null);
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const response = await axios.get("http://localhost:5000/Blog/getBlog");
+                console.log("Fetched Blogs:", response.data); // Debugging
+    
+                // Directly set the blogs if the response data is an array
+                setBlogs(response.data || []); // Fix here
+            } catch (error) {
+                console.error("Error fetching blogs:", error);
+                setBlogs([]); // On error, set an empty array
+            }
+        };
+        fetchBlogs();
+    }, []);
+    
+
+    
 
     return (
         <section className="success-stories">
-            <h2>Success Stories</h2>
-            <p>Read real stories from women who transformed their financial and business lives with She Leads Finance.</p>
-            <div className="stories-container">
-                {stories.map((story, index) => (
-                    <div className="story-card" key={index}>
-                        <img src={story.image} alt={story.name} className="story-image" />
-                        <h3>{story.name}</h3>
-                        <p><strong>Before:</strong> {story.before}</p>
-                        <p><strong>After:</strong> {story.after}</p>
-                        <blockquote>“{story.quote}”</blockquote>
-                    </div>
-                ))}
+           
+
+            {/* Blog Section */}
+            <h2 className="headingblo">Latest Blog Posts</h2>
+            <div className="blog-container">
+                {blogs === null ? (
+                    <p>Loading blogs...</p>
+                ) : blogs.length > 0 ? (
+                    blogs.map((blog) => (
+                        <div className="blog-card" key={blog._id}>
+                            <img src={blog.images?.[0] || {success1}} alt={blog.title} className="blog-image" />
+                            <h3>{blog.title}</h3>
+                            <button onClick={() => navigate(`/blog/${blog._id}`)}>Read More</button>
+                        </div>
+                    ))
+                ) : (
+                    <p>No blogs available.</p>
+                )}
             </div>
         </section>
     );

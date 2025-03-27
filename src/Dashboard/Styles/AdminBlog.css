@@ -1,0 +1,48 @@
+.admin-blog-container {
+    width: 76%;
+    margin-left: 22%;
+    
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  .blog-form input, .blog-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .blog-form button {
+    background-color: #6A1B9A;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .blog-list {
+    margin-top: 20px;
+  }
+  
+  .blog-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+  .blog-images img {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  

@@ -37,6 +37,7 @@ function Navbar() {
                 <Link to="/" className="navbar-item">Home</Link>
                 <Link to="/mentorship" className="navbar-item">Mentorship</Link>
                 <Link to="/contact" className="navbar-item">Contact us</Link>
+                <Link to="/Success" className="navbar-item">Blogs</Link>
                 <Link to="/join" className="navbar-item">Join Us</Link>
             </div>
 

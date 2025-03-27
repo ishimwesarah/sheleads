@@ -1,0 +1,14 @@
+.blog-details {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.blog-main-image {
+    width: 100%;
+   
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

@@ -40,7 +40,6 @@ const Sidebar = () => {
         <ul>
           <li><Link to="/Dashbo">Dashboard</Link></li>
           <li><Link to="/community">Community</Link></li>
-          <li><Link to="/progre">Progress Tracker</Link></li>
           <li><Link to="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship">Book a Mentor</Link></li>
         </ul>
         <button className="slf-logout-btn"><Link to="/Home">Logout</Link></button>

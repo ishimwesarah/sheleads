@@ -35,6 +35,8 @@ import ProtectedRoute from "./components/ProtectedRoutes"
 import AdminSettings from "./Dashboard/Components/Setting"
 import ProgressTracker from "./userdashboard/Components/progress"
 import MentorAdminPage from "./Dashboard/Components/mentor"
+import AdminBlog from "./Dashboard/Components/Blog"
+import BlogDetails from "./components/blogDetail"
 
 function App() {
 
@@ -47,7 +49,8 @@ function App() {
        <Route path="/Home"  element={<Home/>} />       
        <Route path="/mentorship"  element={<Mentorship/>} />
        <Route path="/contact"  element={<ContactUs/>} />     
-       <Route path="/Success"  element={<SuccessStories/>} />       
+       <Route path="/Success"  element={<SuccessStories/>} />
+       <Route path="/blog/:id" element={<BlogDetails />} />       
        <Route path="/Search"  element={<SearchResults/>} />       
        </Route>
        <Route path="/Join"  element={<AuthModal/>} />
@@ -65,6 +68,7 @@ function App() {
         <Route path="/AdminComm"  element={<AdminCommunityPage/>} />
         <Route path="/AdminSettings"  element={<AdminSettings/>} />
         <Route path="/mentor"  element={<MentorAdminPage/>} />
+        <Route path="/AdminBlog" element={<AdminBlog/>} />
 
        </Route>    
        <Route path="/"   element={<UserLayout/>} >
