@@ -37,7 +37,7 @@ const Saving = ({ prevCourse, nextCourse }) => {
       
       <div className="course-buttons">
         <button className="next-button" ><Link to="/Budget" style={{ textDecoration: 'none',color:"inherit"}}>Previous: Budgeting</Link></button>
-        <button className="quiz-button">Take Quiz</button>
+        {/* <button className="quiz-button">Take Quiz</button> */}
         <button className="next-button" ><Link to="/Investing" style={{ textDecoration: 'none',color:"inherit"}} >Next: Investing</Link></button>
       </div>
     </div>

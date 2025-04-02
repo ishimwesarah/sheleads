@@ -79,7 +79,7 @@ const Mentorship = () => {
         <p>
           Your success story starts today. Join a community of driven women building financial confidence and business success.
         </p>
-        <button className="cta-button"><Link to="https://calendly.com/sarahishimwe-va/she-leads-finances-mentorship" style={{ textDecoration: 'none',color:"inherit"}}>Start Your Journey</Link></button>
+        <button className="cta-button"><Link to="/Join" style={{ textDecoration: 'none',color:"inherit"}}>Start Your Journey</Link></button>
       </section>
     </div>
   );

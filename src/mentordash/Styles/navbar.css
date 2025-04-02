@@ -1,0 +1,43 @@
+.mentnavbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ECF0F1;
+    padding: 15px 20px;
+    border-bottom: 2px solid #BDC3C7;
+    margin-left: 20%;
+    margin-top: -10px;
+  }
+  
+  .mentnavbar h2 {
+    font-size: 20px;
+    color: #2C3E50;
+  }
+  
+  .mentnav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .mentnav-right img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2C3E50;
+  }
+  
+  .mentnav-right button {
+    padding: 8px 15px;
+    background: #2C3E50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .mentnav-right button:hover {
+    background: #34495E;
+  }
+  

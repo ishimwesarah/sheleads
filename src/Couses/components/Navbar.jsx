@@ -39,8 +39,7 @@ function Navbar() {
 
             <div className={`navbar-menu ${menuOpen ? "active" : ""}`}>
                 <Link to="/Dashbo" className="navbar-item">Dashboard</Link>
-                <Link to="/mentorship" className="navbar-item">Mentorship</Link>
-                <Link to="/contact" className="navbar-item">Contact us</Link>
+                <Link to="/adminContact" className="navbar-item">Contact us</Link>
                 
             </div>
 

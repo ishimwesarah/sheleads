@@ -26,9 +26,7 @@ const Sidebar = () => {
         <Link to="/AdminBlog" className="sidebar-item">
           <FiMessageSquare className="icon" /> Blog
         </Link>
-        <Link to="/AdminSettings" className="sidebar-item">
-          <FiSettings className="icon" /> Settings
-        </Link>
+        
       </nav>
     </div>
   );

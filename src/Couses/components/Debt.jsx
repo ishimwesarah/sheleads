@@ -36,7 +36,7 @@ This is unsecured, revolving debt that allows consumers to borrow up to a certai
       
       <div className="course-buttons">
         <button className="next-button"><Link to="/Investing"  style={{ textDecoration: 'none',color:"inherit"}} >Previous: Investing</Link></button>
-        <button className="quiz-button">Take Quiz</button>
+        {/* <button className="quiz-button">Take Quiz</button> */}
        
       </div>
     </div>

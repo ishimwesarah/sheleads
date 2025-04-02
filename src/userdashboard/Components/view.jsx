@@ -1,39 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "../styles/dash.css";
 
 const DashboardView = () => {
   const [user] = useState({
     goalsProgress: 50,
   });
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    // Fetch courses from the backend
+    axios.get("http://localhost:5000/course/getCourse")
+      .then(response => {
+        setCourses(response.data);
+      })
+      .catch(error => {
+        console.error("Error fetching courses:", error);
+      });
+  }, []);
 
   return (
     <div className="slf-dashboard-wrapper">
-     
       <div className="slf-main-content">
-        
         <section className="slf-dashboard-body">
-          <section className="slf-financial-tools">
-            <h2 className="slf-section-title">Your Financial Tools</h2>
-            <div className="slf-tools-links">
-              <Link to="/everydollar">EveryDollar</Link>
-              <Link to="/goodbudget">GoodBudget</Link>
-              <Link to="/ynab">YNAB</Link>
+          
+
+          <section className="slf-courses">
+            <h2 className="slf-section-title">Available Courses</h2>
+            <div className="slf-course-list">
+              {courses.length > 0 ? (
+                courses.map(course => (
+                  <div key={course.id} className="slf-course-card">
+                    <h3>{course.title}</h3>
+                    <Link to={`/course/${course.id}`}>Start Course</Link>
+                  </div>
+                ))
+              ) : (
+                <p>Loading courses...</p>
+              )}
             </div>
           </section>
 
-          <section className="slf-business-insights">
-            <h2 className="slf-section-title">Your Business Insights</h2>
-            <p>Latest tips on business management and growth...</p>
-          </section>
-
-          <section className="slf-progress-tracker">
-            <h2 className="slf-section-title">Your Progress</h2>
-            <div className="slf-progress-bar">
-              <div className="slf-progress" style={{ width: `${user.goalsProgress}%` }}></div>
-            </div>
-            <p>{user.goalsProgress}% to your goal!</p>
-          </section>
+          
         </section>
       </div>
     </div>

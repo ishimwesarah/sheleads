@@ -92,7 +92,7 @@ For those sharing finances, lack of communication can lead to conflicting spendi
       </div>
       
       <div className="course-buttons">
-        <button className="quiz-button">Take Quiz</button>
+        {/* <button className="quiz-button">Take Quiz</button> */}
         <button className="next-button" ><Link to="/Saving" style={{ textDecoration: 'none',color:"inherit"}}>Next: Saving </Link></button>
       </div>
     </div>

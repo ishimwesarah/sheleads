@@ -67,8 +67,7 @@ const Navbar = () => {
               <li><Link to="/Finance">📊 Financial Education</Link></li>
               <li><Link to="/Tools">📌 Budgeting Tools</Link></li>
               <li><Link to="/Manage">📈 Business Management</Link></li>
-              <li><Link to="/Success">🏆 Success Stories</Link></li>
-            </ul>
+              </ul>
           </div>
         </div>
       )}

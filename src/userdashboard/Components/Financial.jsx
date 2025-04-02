@@ -8,14 +8,14 @@ import image3 from '../../assets/debt.jpg';
 
 const CourseCard = ({ image, title, description, buttonText, path }) => {
     return (
-        <div className="course-card">
-            <div className="course-image">
+        <div className="unique-course-card">
+            <div className="unique-course-image">
                 <img src={image} alt={title} />
             </div>
-            <h3>{title}</h3>
-            <p>{description}</p>
-            <Link to={path}>
-                <button>{buttonText}</button>
+            <h3 className="unique-course-title">{title}</h3>
+            <p className="unique-course-description">{description}</p>
+            <Link to={path} className="unique-course-link">
+                <button className="unique-course-button">{buttonText}</button>
             </Link>
         </div>
     );
@@ -54,15 +54,15 @@ const Courses = () => {
     ];
 
     return (
-        <section className="courses">
-            <h2>Welcome to the course</h2>
-            <div className="course-cards">
-                <div className="row">
+        <section className="unique-courses">
+            <h2 className="unique-courses-heading">Welcome to the course</h2>
+            <div className="unique-course-cards">
+                <div className="unique-course-row">
                     {coursesData.slice(0, 2).map((course, index) => (
                         <CourseCard key={index} {...course} />
                     ))}
                 </div>
-                <div className="row">
+                <div className="unique-course-row">
                     {coursesData.slice(2, 4).map((course, index) => (
                         <CourseCard key={index} {...course} />
                     ))}

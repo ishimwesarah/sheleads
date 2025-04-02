@@ -1,0 +1,27 @@
+.mentor-dashboard {
+    display: flex;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .dashboard-content {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .dashboard-widgets {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .widget {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1;
+  }
+  

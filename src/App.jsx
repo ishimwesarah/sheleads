@@ -37,6 +37,14 @@ import ProgressTracker from "./userdashboard/Components/progress"
 import MentorAdminPage from "./Dashboard/Components/mentor"
 import AdminBlog from "./Dashboard/Components/Blog"
 import BlogDetails from "./components/blogDetail"
+import AdminContactUs from "./Couses/components/adminContact"
+import UserContactUs from "./userdashboard/Components/userContact"
+import MentorDashboard from "./mentordash/Components/mentordash"
+import Mentees from "./mentordash/Components/mentees"
+import MLayout from "./mentordash/Components/Mlayout"
+import MentorProfile from "./mentordash/Components/profile"
+import BookMentor from "./userdashboard/Components/Book"
+import CourseDetails from "./userdashboard/Components/singlecourse"
 
 function App() {
 
@@ -75,7 +83,10 @@ function App() {
        <Route path="/" index element={<DashboardView/>} />
        <Route element={<ProtectedRoute allowedRoles={["user"]} />}>
        <Route path="/Dashbo" index element={<DashboardView/>} />
+       <Route path="/UserContact"  element={<UserContactUs/>} />
        <Route path="/progre" index element={<ProgressTracker/>} />
+       <Route path="/bookMentor"element={<BookMentor/>}/>
+       <Route path="/course/:id" element={<CourseDetails />} /> 
        </Route>
        <Route path="/Dashbo" index element={<DashboardView/>} />
        <Route path="/Community"  element={<Community/>} />
@@ -88,9 +99,16 @@ function App() {
        <Route path="/Finance"  element={<Courses/>} />
        <Route path="/Budget"  element={<Budgeting/>} />
        <Route path="/Saving"  element={<Saving/>} />
+       <Route path="/adminContact"  element={<AdminContactUs/>} />
        <Route path="/Investing"  element={<Investing/>} />
        <Route path="/Debt"  element={<Debt/>} />      
        </Route>
+       <Route path="/"   element={<MLayout/>} >
+       <Route path="/mentordash"  element={<MentorDashboard/>} />
+       <Route path="/mentorpro"  element={<MentorProfile/>} />
+       <Route path="/mentees" element={<Mentees/>}/>
+       
+         </Route>    
         
       </Routes>
       </BrowserRouter>

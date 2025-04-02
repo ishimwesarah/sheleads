@@ -5,7 +5,7 @@ import "../Styles/Coursepage.css";
 const CoursesPage = () => {
   const [courses, setCourses] = useState([]);
   const [editingCourse, setEditingCourse] = useState(null);
-  const [updatedCourse, setUpdatedCourse] = useState({ title: "", description: "", instructor: "", duration: "" });
+  const [updatedCourse, setUpdatedCourse] = useState({ title: "", description: "", instructor: "", duration: "", pdfUrl: "", videoUrl: "" });
 
   // New course state
   const [newCourse, setNewCourse] = useState({
@@ -14,6 +14,9 @@ const CoursesPage = () => {
     instructor: "",
     duration: "",
     image: "",
+    pdfUrl: "",  // PDF URL
+    videoUrl: "",  // YouTube Video URL
+    
   });
 
   const [showForm, setShowForm] = useState(false); // State to toggle form visibility

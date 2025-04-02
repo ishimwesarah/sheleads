@@ -1,5 +1,5 @@
 .slf-dashboard-sidebar {
-  width: 230px;
+  width: 260px;
   height: 100vh;
   background-color: #787676; /* Deep navy blue */
   color: #FFFFFF;
@@ -135,7 +135,7 @@
   color: #002147;
 }
 .slf-navbar {
-  width: 78%;
+  width: 100%;
   height: 60px;
   background-color: #fafbfd; /* Deep navy blue */
   color: #FFFFFF;
@@ -149,7 +149,7 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  margin-left: 21.3%;
+  margin-left: 22%;
   margin-right: -20%;
 }
 
@@ -166,7 +166,7 @@
   margin-left: 20%;
   padding: 20px;
   background-color: #F9F9F9; /* Light gray for a clean UI */
-  min-height: 100vh;
+ margin-top: 30px;
 }
 
 .slf-main-content {

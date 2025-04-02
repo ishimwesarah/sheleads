@@ -24,8 +24,10 @@ const AuthForm = () => {
       // Redirect based on role
       if (user.userRole === "admin") {
         navigate("/Dashboard");
-      } else {
-        navigate("/Dashbo");
+      } else if(user.userRole === "mentor"){
+        navigate("/mentordash");
+      } else{
+        navigate("/Dashbo")
       }
     } catch (error) {
       console.log("Login/Register Error:", error);

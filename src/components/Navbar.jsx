@@ -42,10 +42,7 @@ function Navbar() {
             </div>
 
             {/* Search Bar */}
-            <div className="search-bar">
-                <input type="text" placeholder="Search..." id="searchInput" />
-                <button onClick={handleSearch}>🔍</button>
-            </div>
+            
         </nav>
     );
 }
