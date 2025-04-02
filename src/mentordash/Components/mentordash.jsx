@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Navbar from "./navbar";
-import "../styles/mentordash.css";
+import "../Styles/mentordash.css";
 import axios from "axios";
 
 const MentorDashboard = () => {
