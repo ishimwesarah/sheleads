@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/usercontact.css";
+import "../styles/Usercontact.css";
 import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 
