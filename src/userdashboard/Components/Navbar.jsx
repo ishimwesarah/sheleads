@@ -46,13 +46,13 @@ const Navbar = () => {
     <header className="slf-navbar">
       <div className="slf-navbar-logo">She Leads Finance</div>
 
-      <a href="/profile" className="slf-profile">
+      <Link to="/profile" className="slf-profile">
         {profilePic ? (
           <img src={profilePic} alt="Profile" className="slf-profile-pic" />
         ) : (
           "Profile"
         )}
-      </a>
+      </Link>
 
       <button onClick={toggleModal} className="slf-resources-btn">
         Resources
