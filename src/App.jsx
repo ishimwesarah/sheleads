@@ -45,6 +45,7 @@ import MLayout from "./mentordash/Components/Mlayout"
 import MentorProfile from "./mentordash/Components/profile"
 import BookMentor from "./userdashboard/Components/Book"
 import CourseDetails from "./userdashboard/Components/singlecourse"
+import MentorSessions from "./mentordash/Components/Session"
 
 function App() {
 
@@ -107,7 +108,8 @@ function App() {
        <Route path="/mentordash"  element={<MentorDashboard/>} />
        <Route path="/mentorpro"  element={<MentorProfile/>} />
        <Route path="/mentees" element={<Mentees/>}/>
-       
+       <Route path="/session" element={<MentorSessions/>}/>       
+
          </Route>    
         
       </Routes>

@@ -1,82 +1,56 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/book.css"
-
-const BookMentor = () => {
+const BookSession = () => {
   const [mentors, setMentors] = useState([]);
-  const [selectedMentor, setSelectedMentor] = useState(null);
-  const [availableSlots, setAvailableSlots] = useState([]);
-  const [selectedSlot, setSelectedSlot] = useState(null);
-  const [menteeInfo, setMenteeInfo] = useState({ menteeName: "", menteeEmail: "" });
+  const [selectedMentor, setSelectedMentor] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/mentor/available")
-      .then((res) => setMentors(res.data))
-      .catch((err) => console.error("Error fetching mentors:", err));
+    const fetchMentors = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/mentor/getmentor"); // Get mentors
+        setMentors(response.data);
+      } catch (error) {
+        console.error("Error fetching mentors:", error);
+      }
+    };
+    fetchMentors();
   }, []);
 
-  const fetchAvailableSlots = () => {
-    axios.get(`http://localhost:5000/mentor/available`)
-      .then((res) => {
-        setSelectedMentor(res.data);
-        setAvailableSlots(res.data.availableSlots);
-      })
-      .catch((err) => console.error("Error fetching availability:", err));
-  };
-
-  const handleBooking = async (e) => {
-    e.preventDefault();
-    if (!selectedSlot) return alert("Please select a time slot.");
-
+  const handleBooking = async () => {
     try {
-      const bookingData = { 
-        mentorId: selectedMentor._id, 
-        ...menteeInfo, 
-        date: selectedSlot.date, 
-        time: selectedSlot.time 
-      };
-      await axios.post("http://localhost:5000/booking/book", bookingData);
-      alert("Booking successful!");
+      const token = localStorage.getItem("token");
+
+      const response = await axios.post(
+        "http://localhost:5000/session/book",
+        { mentorId: selectedMentor, date, time },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      alert(response.data.message);
     } catch (error) {
-      console.error("Booking error:", error);
+      console.error("Error booking session:", error);
     }
   };
 
   return (
     <div className="booking-container">
-      <h2>Book a Mentor</h2>
-      <div className="mentor-list">
+      <h3>Book a Session</h3>
+      <select value={selectedMentor} onChange={(e) => setSelectedMentor(e.target.value)}>
+        <option value="" className="book-list">Select a Mentor</option>
         {mentors.map((mentor) => (
-          <div key={mentor._id} className="mentor-card" onClick={() => fetchAvailableSlots(mentor._id)}>
-            <img src={mentor.profilePic} alt={mentor.name} className="mentor-pic" />
-            <h3>{mentor.name}</h3>
-            <p>{mentor.expertise}</p>
-          </div>
+          <option key={mentor._id} value={mentor._id}>
+            {mentor.name} - {mentor.expertise}
+          </option>
         ))}
-      </div>
-
-      {selectedMentor && (
-        <div className="availability-section">
-          <h3>Available Slots for {selectedMentor.name}</h3>
-          <div className="slots-grid">
-            {availableSlots.map((slot, index) => (
-              <button key={index} onClick={() => setSelectedSlot(slot)} className={selectedSlot === slot ? "selected" : ""}>
-                {slot.date} - {slot.time}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {selectedSlot && (
-        <form onSubmit={handleBooking} className="booking-form">
-          <input type="text" name="menteeName" placeholder="Your Name" onChange={(e) => setMenteeInfo({...menteeInfo, menteeName: e.target.value})} required />
-          <input type="email" name="menteeEmail" placeholder="Your Email" onChange={(e) => setMenteeInfo({...menteeInfo, menteeEmail: e.target.value})} required />
-          <button type="submit">Confirm Booking</button>
-        </form>
-      )}
+      </select>
+      <input type="date" value={date} onChange={(e) => setDate(e.target.value)} className="book-list" />
+      <input type="time" value={time} onChange={(e) => setTime(e.target.value)} className="book-list" />
+      <button onClick={handleBooking} disabled={!selectedMentor}className="book-button">Book</button>
     </div>
   );
 };
 
-export default BookMentor;
+export default BookSession;

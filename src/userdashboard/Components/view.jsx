@@ -37,7 +37,7 @@ const DashboardView = () => {
                   </div>
                 ))
               ) : (
-                <p>Loading courses...</p>
+                <p>No course available</p>
               )}
             </div>
           </section>

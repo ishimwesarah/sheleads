@@ -1,5 +1,8 @@
 .mentor-dashboard {
     display: flex;
+    width: 78%;
+    margin-left: 22%;
+    margin-top: 30px;
   }
   
   .main-content {

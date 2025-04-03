@@ -1,48 +1,41 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../Styles/sessions.css";
+import "../Styles/session.css"
+const MentorSessions = ({ mentorId }) => {
+  const [sessions, setSessions] = useState([]);
 
-const MySessions = () => {
-    const [sessions, setSessions] = useState([]);
+  useEffect(() => {
+    const fetchSessions = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/session/mentor/${mentorId}`);
+        setSessions(response.data);
+      } catch (error) {
+        console.error("Error fetching sessions:", error);
+      }
+    };
 
-    useEffect(() => {
-        const fetchSessions = async () => {
-            try {
-                const response = await axios.get("http://localhost:5000/api/sessions/mentorID");
-                setSessions(response.data);
-            } catch (error) {
-                console.error("Error fetching sessions:", error);
-            }
-        };
+    fetchSessions();
+  }, [mentorId]);
 
-        fetchSessions();
-    }, []);
-
-    return (
-        <div className="sessions">
-            <h2>My Sessions</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mentee</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sessions.map((session) => (
-                        <tr key={session.id}>
-                            <td>{session.menteeName}</td>
-                            <td>{session.date}</td>
-                            <td>{session.time}</td>
-                            <td className={session.status.toLowerCase()}>{session.status}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    );
+  return (
+    <div className="mentorsessioncont">
+      <h2>My Sessions</h2>
+      <ul>
+        {sessions.length === 0 ? (
+          <p>No sessions booked yet.</p>
+        ) : (
+          sessions.map((session, index) => (
+            <li key={index}>
+              <p><strong>Mentee:</strong> {session.menteeName}</p>
+              <p><strong>Date:</strong> {session.date}</p>
+              <p><strong>Time:</strong> {session.time}</p>
+              <p><strong>Status:</strong> {session.status}</p>
+            </li>
+          ))
+        )}
+      </ul>
+    </div>
+  );
 };
 
-export default MySessions;
+export default MentorSessions;

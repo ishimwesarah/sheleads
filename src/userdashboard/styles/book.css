@@ -1,4 +1,11 @@
 .booking-container{
-    margin-left: 30%;
+    margin-left: 24%;
+    width: 50%;
+    margin-top: 100px;
+    padding: 20px;
     
+}
+.book-list{
+    display: grid;
+    gap: 15px;
 }

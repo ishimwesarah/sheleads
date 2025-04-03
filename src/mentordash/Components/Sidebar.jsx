@@ -10,7 +10,7 @@ const Sidebar = () => {
         <li><Link to="/mentordash">Dashboard</Link></li>
         <li><Link to="/mentorpro">My Profile</Link></li>
         <li><Link to="/mentees">Mentees</Link></li>
-        <li><Link to="/mentor/sessions">Sessions</Link></li>
+        <li><Link to="/session">Sessions</Link></li>
         <li><Link to="/mentor/messages">Messages</Link></li>
         <li><Link to="/mentor/resources">Resources</Link></li>
       </ul>
