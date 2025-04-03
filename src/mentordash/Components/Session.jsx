@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../Styles/session.css"
-const MentorSessions = ({ mentorId }) => {
+const MentorSession = ({ mentorId }) => {
   const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const MentorSessions = ({ mentorId }) => {
   );
 };
 
-export default MentorSessions;
+export default MentorSession;

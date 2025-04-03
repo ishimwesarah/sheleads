@@ -33,10 +33,11 @@
     color: white;
   }
   
-  .course-image {
-    width: 20px;
-    height: 40px;
+  .course-image-thumbnail {
+    width: 60px;
+    height: 60px;
     border-radius: 5px;
+    object-fit: cover;
   }
   
   input, textarea {

@@ -1,21 +1,23 @@
+/* ======================================== */
+/*            Base Desktop Styles           */
+/* ======================================== */
+
+/* --- Sidebar Styles --- */
 .slf-dashboard-sidebar {
-  width: 260px;
-  height: 100vh;
-  background-color: #787676; /* Deep navy blue */
-  color: #FFFFFF;
+  width: 260px; /* Explicit width */
+  height: 100vh; /* Full viewport height */
+  background-color: #787676; /* Sidebar background color */
+  color: #FFFFFF; /* Text color */
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
+  position: fixed; /* Fixed position on the left */
   left: 0;
   top: 0;
-  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
-}
-.slf-logout-btn{
-  margin-bottom: 0;
-  margin-top: 80%;
-  background-color: #E1B5B5;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out; /* For smooth slide on mobile */
+  z-index: 1100; /* High z-index to be above content, potentially above navbar overlay */
 }
 
 .slf-sidebar-profile {
@@ -27,130 +29,90 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid #E1B5B5; /* Gold accent */
-  
+  border: 3px solid #E1B5B5; /* Accent border color */
+  object-fit: cover; /* Ensure image covers the area */
 }
 
 .slf-sidebar-profile h3 {
   font-size: 18px;
   margin-top: 10px;
   font-weight: bold;
+  word-wrap: break-word; /* Prevent long names from overflowing */
 }
 
 .slf-sidebar-links ul {
   list-style: none;
   padding: 0;
   width: 100%;
+  margin: 0;
 }
 
 .slf-sidebar-links li {
   width: 100%;
-  padding: 12px 20px;
   margin: 5px 0;
   text-align: left;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px; /* Slightly rounded corners for hover effect */
 }
 
 .slf-sidebar-links a {
-  color: black;
+  color: #FFFFFF; /* White link text */
   text-decoration: none;
-  display: block;
+  display: block; /* Make the whole area clickable */
+  padding: 12px 20px; /* Padding inside the link */
 }
 
 .slf-sidebar-links li:hover {
-  background-color: #E1B5B5; /* Gold highlight on hover */
-  color: #002147;
+  background-color: #E1B5B5; /* Highlight background on hover */
+}
+.slf-sidebar-links li:hover a {
+  color: #333; /* Darker text on hover */
 }
 
-.slf-resources {
-  position: relative;
-}
 
-.slf-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-.slf-modal-content {
-  background: #FFFFFF;
-  color: #002147;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  opacity: 1;
-}
-.slf-modal-overlay ~ .slf-main-content {
-  filter: blur(5px); /* Blurs the background text */
-  pointer-events: none; /* Prevents clicking on background */
-  opacity: 0.3; /* Fades background */
-  pointer-events: none;
-}
-
-.slf-modal-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.slf-modal-links {
-  list-style: none;
-  padding: 0;
-}
-
-.slf-modal-links li {
-  padding: 10px 0;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.slf-modal-links a {
-  text-decoration: none;
-  color: #002147;
-  transition: color 0.3s ease;
-}
-
-.slf-modal-links a:hover {
-  color: #E1B5B5;
-}
-
-.slf-modal-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
+.slf-logout-btn {
+  background-color: #E1B5B5; /* Logout button background */
+  color: #333; /* Dark text for contrast */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  color: #002147;
+  font-weight: bold;
+  text-align: center;
+  display: block; /* Make it a block element */
+  width: 80%; /* Control width */
+  margin: 40px auto 20px auto; /* Adjust top/bottom margin */
+  transition: background-color 0.3s ease;
 }
+.slf-logout-btn:hover {
+   background-color: #d4a0a6; /* Slightly darker on hover */
+}
+/* Remove default Link styling if button wraps Link */
+.slf-logout-btn a {
+    color: inherit; /* Inherit color from button */
+    text-decoration: none;
+}
+
+
+/* --- Navbar Styles --- */
 .slf-navbar {
-  width: 100%;
-  height: 60px;
-  background-color: #fafbfd; /* Deep navy blue */
-  color: #FFFFFF;
+  height: 60px; /* Navbar height */
+  background-color: #ffffff; /* White background */
+  color: #333; /* Default text color */
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 5px;
-  position: fixed;
+  justify-content: space-between; /* Space out logo, toggle, profile */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle bottom shadow */
+  padding: 0 20px; /* Horizontal padding */
+  position: fixed; /* Fixed to top */
   top: 0;
-  z-index: 1000;
-  margin-left: 22%;
-  margin-right: -20%;
+  left: 290px; /* Start after the sidebar */
+  width: calc(100% - 260px); /* Calculate width */
+  z-index: 1000; /* Below sidebar but above content */
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
 .slf-navbar-logo {
@@ -158,142 +120,416 @@
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #E1B5B5; 
-  margin-left: -20px;
-}
-.slf-dashboard-wrapper {
-  width: 80%;
-  margin-left: 20%;
-  padding: 20px;
-  background-color: #F9F9F9; /* Light gray for a clean UI */
- margin-top: 30px;
+  color: #E1B5B5; /* Accent color */
 }
 
-.slf-main-content {
-  background: #FFFFFF;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+/* Grouping for right-side Navbar items */
+.slf-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between profile and resources button */
 }
 
-.slf-dashboard-body {
+.slf-profile {
   display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.slf-section-title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #002147; /* Deep navy blue */
-  border-bottom: 2px solid #E1B5B5; /* Gold accent underline */
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-.slf-tools-links a {
-  display: inline-block;
-  background: #002147; /* Deep navy blue */
-  color: #FFFFFF;
-  padding: 10px 15px;
-  margin-right: 10px;
-  border-radius: 8px;
+  align-items: center;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
+  color: #333; /* Text color */
 }
 
-.slf-tools-links a:hover {
-  background: #E1B5B5; /* Gold accent on hover */
+.slf-profile-pic {
+  width: 45px; /* Slightly smaller navbar pic */
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eee; /* Light border */
+  margin-right: 8px; /* Space between pic and name (if shown) */
 }
 
-.slf-progress-tracker {
-  text-align: center;
-}
-
-.slf-progress-bar {
-  width: 100%;
-  height: 20px;
-  background: #E0E0E0;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 10px;
-}
-
-.slf-progress {
-  height: 100%;
-  background: #002147; /* Deep navy blue */
-  transition: width 0.5s ease-in-out;
-}
-
-.slf-progress-tracker p {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #002147;
-}
 .slf-resources-btn {
-  padding: 10px 5px;
-  background-color: #898989; /* Green background for button */
+  padding: 8px 15px;
+  background-color: #e0b3b8; /* Theme color */
   color: white;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-left: 10%;
-
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.slf-resources-btn:hover {
+  background-color: #d4a0a6; /* Darker theme color */
 }
 
+/* --- Modal Styles (For Resources) --- */
 .slf-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay */
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1200; /* Should be above everything */
+  opacity: 1; /* Start visible */
+  transition: opacity 0.3s ease; /* Fade effect if needed */
 }
 
 .slf-modal-content {
-  background: white;
-  padding: 20px;
+  background: #FFFFFF;
+  color: #333;
+  padding: 25px 30px;
   border-radius: 8px;
-  max-width: 500px;
-  width: 100%;
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Max width */
+  text-align: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative; /* Needed for close button positioning */
 }
 
-.slf-modal-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+/* Optional: Blur background when modal is open */
+/* This requires coordination with JS to add/remove a class on the body or main container */
+/* .modal-open-background { filter: blur(4px); } */
+
+.slf-modal-title {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #e0b3b8;
 }
 
 .slf-modal-links {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .slf-modal-links li {
-  margin: 10px 0;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid #eee; /* Separator */
+}
+.slf-modal-links li:last-child {
+    border-bottom: none; /* No border on last item */
 }
 
 .slf-modal-links a {
   text-decoration: none;
-  color: #333;
-}
-.slf-profile {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
-  margin-left: 150px;
+  color: #555; /* Link color */
+  transition: color 0.3s ease;
+  display: block; /* Make whole area clickable */
 }
 
-.slf-profile-pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover; /* Ensures the image fits properly */
-  border: 2px solid #ccc;
+.slf-modal-links a:hover {
+  color: #e0b3b8; /* Accent color on hover */
+}
+
+.slf-modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  color: #aaa;
+  background: none;
+  border: none;
+}
+.slf-modal-close-btn:hover {
+    color: #333;
+}
+
+
+/* --- Main Content Wrapper (DashboardView Container) --- */
+.slf-dashboard-wrapper { /* This class wraps the main view content */
+  margin-left: 300px; /* Start after the sidebar */
+  padding-top: 80px; /* Navbar height (60px) + some space (20px) */
+  padding-bottom: 20px;
+  padding-left: 20px; /* Add horizontal padding */
+  padding-right: 20px;
+  width: calc(100% - 260px); /* Calculate width */
+  background-color: #f4f7f6; /* Light background for content area */
+  min-height: calc(100vh - 60px); /* Ensure it takes at least the remaining height */
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+/* --- Dashboard View Specific Styles --- */
+.slf-main-content { /* Inner container if needed, often used with Outlet */
+   /* If you use React Router Outlet, this might contain the actual view */
+   /* Otherwise, styles might be directly on slf-dashboard-wrapper */
+   /* Example if used: */
+   /* background: #FFFFFF; */
+   /* padding: 30px; */
+   /* border-radius: 8px; */
+   /* box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08); */
+}
+
+.slf-dashboard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between sections */
+}
+
+.slf-courses {
+  /* Optional: Add specific background/padding if needed */
+  /* background-color: #ffffff; */
+  /* padding: 20px; */
+  /* border-radius: 8px; */
+}
+
+.slf-section-title {
+  font-size: 1.8em; /* Adjust as needed */
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0b3b8; /* Theme color accent */
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+/* Loading and Error Messages */
+.slf-loading-message,
+.slf-error-message {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 1.1em;
+  color: #666;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.slf-error-message {
+  color: #d9534f; /* Red for errors */
+  font-weight: 500;
+  border: 1px solid #f5c6cb;
+  background-color: #f8d7da;
+}
+
+
+/* Course List Layout */
+.slf-course-list {
+  display: grid;
+  /* Responsive grid: fills available space, min card width 280px */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px; /* Space between cards */
+}
+
+/* Individual Course Card */
+.slf-course-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* Keep image corners rounded */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.slf-course-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slf-course-card-image {
+  width: 100%;
+  height: 160px; /* Fixed height for consistency */
+  object-fit: cover;
+  display: block; /* Remove potential extra space */
+  background-color: #eee; /* Placeholder color */
+}
+
+.slf-course-card-content {
+    padding: 15px 20px;
+    flex-grow: 1; /* Allows content to fill space */
+    display: flex;
+    flex-direction: column; /* Stack title, instructor, link */
+}
+
+.slf-course-card-title {
+  font-size: 1.25em;
+  color: #333;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+}
+
+.slf-course-card-instructor {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Push link to the bottom if card heights vary */
+}
+
+.slf-start-course-link {
+  display: block; /* Full width button */
+  background-color: #e0b3b8; /* Theme color */
+  color: white;
+  padding: 10px 15px; /* More padding */
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+  margin-top: auto; /* Pushes the button to the bottom */
+}
+.slf-start-course-link:hover {
+  background-color: #d4a0a6; /* Slightly darker shade */
+}
+
+
+/* ======================================== */
+/*          Responsive Overrides            */
+/* ======================================== */
+
+/* --- Hamburger Menu Button (Initially Hidden on Desktop) --- */
+.slf-navbar-toggle {
+  display: none; /* Hide on large screens */
+  background: none;
+  border: none;
+  color: #e0b3b8; /* Use a theme color */
+  font-size: 28px; /* Adjust size */
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px; /* Add some space if needed */
+}
+
+
+/* --- Media Query for Tablets and Smaller (e.g., <= 992px) --- */
+@media (max-width: 992px) {
+  .slf-navbar {
+    /* Navbar takes full width, stays fixed */
+    width: 100%;
+    left: 0; /* Align to the left edge */
+    margin-left: 0;
+  }
+
+  /* Show the hamburger toggle button */
+  .slf-navbar-toggle {
+    display: block; /* Show button */
+    order: -1; /* Place hamburger first on the left */
+  }
+
+   .slf-navbar-logo {
+     /* Optional: Center logo if needed when hamburger is present */
+     /* margin: 0 auto; */
+   }
+
+   .slf-navbar-right {
+      /* Adjust spacing or hide elements if needed */
+       gap: 15px;
+   }
+
+   /* Hide original resources button, move functionality to sidebar menu */
+   .slf-resources-btn {
+      display: none;
+   }
+
+  /* Sidebar becomes the slide-out menu */
+  .slf-dashboard-sidebar {
+    /* Start hidden off-screen to the left */
+    transform: translateX(-100%);
+    /* Keep other styles: width, height, background, etc. */
+    /* Ensure it's above content and potentially overlay */
+    z-index: 1100;
+  }
+
+  /* Class added via JS when menu is open */
+  .slf-dashboard-sidebar.slf-sidebar-open {
+    transform: translateX(0); /* Slide in */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+  }
+
+  /* Main content area takes full width */
+  .slf-dashboard-wrapper {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 15px; /* Adjust padding */
+    padding-right: 15px;
+    /* padding-top remains 80px to account for fixed navbar */
+  }
+
+  /* Mobile Overlay for when sidebar is open */
+  .slf-mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1050; /* Below sidebar (1100) but above content/navbar (1000) */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  .slf-mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+  }
+
+  /* Show mobile-specific links in sidebar if they exist */
+  .slf-mobile-resource-link {
+      display: block; /* Show the resources link in the sidebar */
+  }
+}
+
+/* --- Media Query for Small Mobile Screens (e.g., <= 576px) --- */
+@media (max-width: 576px) {
+    .slf-navbar {
+        padding: 0 15px; /* Reduce navbar padding */
+        height: 55px; /* Slightly shorter navbar */
+    }
+    .slf-navbar-logo {
+        font-size: 18px; /* Smaller logo */
+    }
+    .slf-navbar-toggle {
+        font-size: 24px; /* Smaller hamburger */
+    }
+    .slf-profile-pic {
+        width: 40px; /* Smaller profile pic */
+        height: 40px;
+    }
+    .slf-navbar-right {
+      gap: 10px; /* Less gap */
+    }
+
+    .slf-dashboard-sidebar {
+       width: 240px; /* Slightly narrower menu */
+    }
+    .slf-sidebar-links li a {
+        padding: 10px 15px; /* Adjust link padding */
+    }
+
+    .slf-dashboard-wrapper {
+       padding-top: 70px; /* Adjust for potentially shorter navbar */
+       padding-left: 10px;
+       padding-right: 10px;
+    }
+
+     .slf-main-content { /* Adjust if using this wrapper */
+        padding: 15px;
+     }
+
+     .slf-course-list {
+        grid-template-columns: 1fr; /* Single column layout for cards */
+        gap: 20px;
+     }
+     .slf-course-card-content {
+         padding: 10px 15px;
+     }
+     .slf-course-card-title {
+         font-size: 1.1em;
+     }
+     .slf-section-title {
+         font-size: 1.5em; /* Smaller section titles */
+         margin-bottom: 20px;
+     }
+}
+
+/* Hide mobile-specific links by default */
+.slf-mobile-resource-link {
+    display: none;
 }

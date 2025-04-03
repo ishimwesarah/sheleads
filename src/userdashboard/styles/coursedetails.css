@@ -1,14 +1,169 @@
-.course-details {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
+/* General Container */
+.course-details-container {
+    width: 78%; /* Limit width for readability */
+    /* Top margin (account for navbar), auto side margins (center), bottom margin */
+    padding: 25px 30px;
+    background-color: #ffffff; /* White background for the content area */
+    border-radius: 8px;       /* Slightly rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    font-family: sans-serif; /* Or your preferred font */
+    color: #333;
+    margin-left: 22%;
+    margin-top: 30px;
+  }
+  
+  .course-details-container.loading,
+  .course-details-container.error {
     text-align: center;
-}
-
-.course-main-image {
+    font-size: 1.2em;
+    color: #555;
+    padding: 50px 20px;
+  }
+  .course-details-container.error {
+      color: #d9534f; /* Error color */
+  }
+  
+  /* Header */
+  .course-header {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+  }
+  
+  .course-title {
+    font-size: 2.2em; /* Larger title */
+    color: #e0b3b8; /* Match theme color */
+    margin: 0 0 10px 0; /* Remove default top margin, add bottom margin */
+    font-weight: 600;
+  }
+  
+  .course-meta {
+    font-size: 0.95em;
+    color: #666;
+    display: flex; /* Arrange items horizontally */
+    gap: 20px; /* Space between instructor and duration */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+  }
+  
+  .course-instructor,
+  .course-duration {
+    display: inline-block; /* Needed if not using flex/grid */
+  }
+  
+  /* Main Image */
+  .course-main-image {
+    width: 100%; /* Make image responsive within container */
+    max-width: 700px; /* Optional: prevent image from getting too huge */
+    height: auto;   /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    margin: 0 auto 30px auto; /* Center image and add space below */
+    border-radius: 6px; /* Rounded corners for image */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Section Styling (Description, Video, Resources) */
+  .course-description,
+  .course-video,
+  .course-resources {
+    margin-bottom: 30px;
+  }
+  
+  .course-description h2,
+  .course-video h2,
+  .course-resources h2 {
+    font-size: 1.6em;
+    color: #444;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0; /* Subtle separator */
+  }
+  
+  .course-description p {
+    line-height: 1.7; /* Improve readability */
+    font-size: 1.05em;
+    color: #555;
+  }
+  
+  /* Video Container */
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000; /* Black background while loading */
+    border-radius: 6px;
+    margin: 0 auto; /* Center if needed */
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-   
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
+    height: 100%;
+    border: none; /* Remove default iframe border */
+  }
+  
+  /* Resources Link (PDF) */
+  .resource-link.pdf-link {
+    display: inline-block; /* Allow padding and margin */
+    background-color: #d9534f; /* PDF/Adobe color */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .resource-link.pdf-link:hover {
+    background-color: #c9302c; /* Darker red on hover */
+  }
+  
+  /* No Materials Message */
+  .no-materials {
+      font-style: italic;
+      color: #777;
+      margin-top: 20px;
+      text-align: center;
+  }
+  
+  /* Responsive Adjustments (Optional but Recommended) */
+  @media (max-width: 768px) {
+    .course-details-container {
+      margin: 65px 15px 30px 15px; /* Adjust margins for smaller screens */
+      padding: 20px;
+    }
+  
+    .course-title {
+      font-size: 1.8em;
+    }
+  
+    .course-description h2,
+    .course-video h2,
+    .course-resources h2 {
+      font-size: 1.4em;
+    }
+  
+    .course-meta {
+        font-size: 0.9em;
+        gap: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+      .course-title {
+          font-size: 1.6em;
+      }
+      .course-meta {
+          flex-direction: column; /* Stack meta items vertically */
+          gap: 5px;
+          align-items: flex-start;
+      }
+       .resource-link.pdf-link {
+          display: block; /* Make button full width */
+          text-align: center;
+       }
+  }
