@@ -98,7 +98,7 @@ const Navbar = ({ onToggleSidebar }) => {
             <h2 className="slf-modal-title">DIVE IN</h2>
             <ul className="slf-modal-links">
               {/* Add onClick={toggleModal} to links if you want modal to close on navigation */}
-              <li><Link to="/Finance" onClick={toggleModal}>📊 Financial Education</Link></li>
+              
               <li><Link to="/Tools" onClick={toggleModal}>📌 Budgeting Tools</Link></li>
               <li><Link to="/Manage" onClick={toggleModal}>📈 Business Management</Link></li>
               {/* Add the Resources button functionality here for mobile */}

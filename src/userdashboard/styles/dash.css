@@ -110,7 +110,7 @@
   position: fixed; /* Fixed to top */
   top: 0;
   left: 290px; /* Start after the sidebar */
-  width: calc(100% - 260px); /* Calculate width */
+  width: calc(100% - 310px); /* Calculate width */
   z-index: 1000; /* Below sidebar but above content */
   transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out, left 0.3s ease-in-out;
 }
