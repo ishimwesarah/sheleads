@@ -169,7 +169,7 @@ const FeatureCard = ({ image, title, descriptionItems }) => {
             </div>
         </section>
         <h2 className='hhhh'>Join hundreds of women on the path to financial freedom and business success.</h2>
-        <button className='sign'><Link to='/Join' style={{textDecoration:"none", color:"inherit"}}>Join the Community</Link></button>
+        <button className='join-community1'><Link to='/Join' style={{textDecoration:"none", color:"inherit"}}>Join the Community</Link></button>
     </div>
   )
 }

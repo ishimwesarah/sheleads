@@ -533,3 +533,158 @@
 .slf-mobile-resource-link {
     display: none;
 }
+/* === Additions for New Dashboard Sections === */
+
+/* --- Welcome Section --- */
+.slf-welcome {
+  background-color: #e7f3ff; /* Light blue background */
+  padding: 20px 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border-left: 5px solid #e0b3b8; /* Accent border */
+  width: 85%;
+}
+.slf-welcome h1 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+.slf-welcome p {
+  margin-bottom: 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* --- Quick Links Section --- */
+.slf-quick-links {
+  margin-bottom: 30px;
+}
+
+.slf-section-title-sub { /* Slightly smaller title style */
+  font-size: 1.4em;
+  color: #444;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.quick-links-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 15px; /* Space between links */
+}
+
+.quick-link-btn {
+  background-color: #e0b3b8; /* Theme color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+.quick-link-btn:hover {
+  background-color: #d4a0a6; /* Darker shade */
+  transform: translateY(-2px); /* Slight lift */
+}
+
+/* --- My Sessions Section --- */
+.slf-my-sessions {
+  /* Add specific background/padding if desired */
+  /* background-color: #fff; */
+  /* padding: 20px; */
+  /* border-radius: 8px; */
+}
+
+.slf-session-list {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  grid-template-columns: 1fr; /* Start with single column */
+  gap: 15px;
+}
+@media (min-width: 768px) { /* Two columns on medium screens+ */
+  .slf-session-list {
+     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.slf-session-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  border-left: 5px solid #ccc; /* Default border */
+}
+
+/* Style card based on status */
+.slf-session-card.status-pending { border-left-color: #ffc107; } /* Yellow */
+.slf-session-card.status-confirmed { border-left-color: #28a745; } /* Green */
+.slf-session-card.status-completed { border-left-color: #6c757d; } /* Grey */
+.slf-session-card.status-cancelled { border-left-color: #dc3545; border-style: dashed; opacity: 0.8; } /* Red */
+
+
+.slf-session-mentor-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0; /* Prevent avatar from shrinking */
+}
+
+.slf-session-details {
+  flex-grow: 1; /* Take remaining space */
+}
+
+.slf-session-mentor-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 2px 0;
+}
+.slf-session-expertise {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0 0 8px 0;
+  font-style: italic;
+}
+
+.slf-session-datetime {
+  font-size: 0.95em;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.slf-session-status {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 0;
+}
+.slf-session-status strong {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Link inside session card */
+.slf-my-sessions a {
+  color: #e0b3b8;
+  text-decoration: none;
+  font-weight: 500;
+}
+.slf-my-sessions a:hover {
+  text-decoration: underline;
+}
+
+/* --- General Dashboard Body Adjustments --- */
+.slf-dashboard-body {
+  /* Existing styles */
+  gap: 40px; /* Increase gap between major sections */
+}

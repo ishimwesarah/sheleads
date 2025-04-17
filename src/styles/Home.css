@@ -82,7 +82,7 @@
 }
 
 .start-learning,
-.join-community {
+.join-community, .join-community1 {
   background-color: #D9C3C3;
   color: white;
   font-weight: bold;
@@ -90,7 +90,7 @@
 }
 
 .start-learning:hover,
-.join-community:hover {
+.join-community:hover, .join-community1:hover {
   transform: scale(1.1);
   background-color: black;
 }
@@ -319,4 +319,7 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+.join-community1{
+  margin-left: 40%;
 }

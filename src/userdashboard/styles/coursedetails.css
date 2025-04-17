@@ -1,6 +1,6 @@
 /* General Container */
 .course-details-container {
-    width: 78%; /* Limit width for readability */
+    width: 75%; /* Limit width for readability */
     /* Top margin (account for navbar), auto side margins (center), bottom margin */
     padding: 25px 30px;
     background-color: #ffffff; /* White background for the content area */
